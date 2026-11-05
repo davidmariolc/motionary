@@ -1,70 +1,74 @@
-import Image from "next/image";
-import type { ReactElement } from "react";
+import { Catalog } from "@/components/catalog";
+import { animations } from "@/lib/animations";
 
-const Home = (): ReactElement => (
-  <div className="flex flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-    <main className="flex w-full max-w-3xl flex-1 flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-      <Image
-        className="h-5 w-[100px] dark:invert"
-        src="/next.svg"
-        alt="Next.js logo"
-        width={100}
-        height={20}
-        priority
-      />
-      <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-        <h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50">
-          To get started, edit the{" "}
-          <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-            page.tsx
-          </code>{" "}
-          file.
-        </h1>
-        <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-          Looking for a starting point or more instructions? Head over to{" "}
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            className="font-medium text-zinc-950 dark:text-zinc-50"
-          >
-            Templates
-          </a>{" "}
-          or the{" "}
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            className="font-medium text-zinc-950 dark:text-zinc-50"
-          >
-            Learning
-          </a>{" "}
-          center.
-        </p>
-      </div>
-      <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-        <a
-          className="bg-foreground text-background flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            className="h-[14px] w-4 dark:invert"
-            src="/vercel.svg"
-            alt="Vercel logomark"
-            width={16}
-            height={14}
-          />
-          Deploy Now
-        </a>
-        <a
-          className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Documentation
-        </a>
-      </div>
+const Home = () => {
+  return (
+    <main id="main-content" className="container">
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            <span className="status-dot" /> A LITTLE LIBRARY OF BIG IDEAS
+          </p>
+          <h1 id="hero-title">
+            A visual dictionary
+            <br />
+            of <span>motion.</span>
+            <span className="title-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </h1>
+          <p className="hero-description">
+            You know the movement. Now find the words.
+            <br className="desktop-break" /> Explore, play, and turn what you
+            see into your next prompt.
+          </p>
+        </div>
+        <div className="hero-specimen" aria-hidden="true">
+          <span className="specimen-cross cross-top">+</span>
+          <span className="specimen-cross cross-bottom">+</span>
+          <div className="specimen-orbit orbit-one" />
+          <div className="specimen-orbit orbit-two" />
+          <div className="specimen-square square-ghost-one" />
+          <div className="specimen-square square-ghost-two" />
+          <div className="specimen-square square-main" />
+          <span className="specimen-caption">LESS GUESSING. MORE MAKING.</span>
+        </div>
+      </section>
+      <Catalog entries={animations} />
+      <section
+        id="how-it-works"
+        className="how-it-works"
+        aria-labelledby="how-title"
+      >
+        <div>
+          <p className="eyebrow">FROM “THAT THING” TO THE RIGHT WORDS</p>
+          <h2 id="how-title">See it. Name it. Make it.</h2>
+        </div>
+        <ol>
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Find your motion</h3>
+              <p>Browse the collection or search for what you have in mind.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Get a feel for it</h3>
+              <p>Play an effect, slow it down, and see what makes it work.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Take the words with you</h3>
+              <p>Copy a ready-to-use prompt and make it your own.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
     </main>
-  </div>
-);
-
+  );
+};
 export default Home;
