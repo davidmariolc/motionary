@@ -13,7 +13,7 @@ export const AnimationCard = ({
 }) => {
   const category = getCategory(entry.category);
   return (
-    <article className="animation-card">
+    <article className="animation-card" data-category={entry.category}>
       <DemoPlayer entry={entry} />
       <div className="card-content">
         <div className="card-heading">

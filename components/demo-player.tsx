@@ -147,7 +147,7 @@ export const DemoPlayer = ({
           {String(entry.number).padStart(2, "0")}
         </span>
         <span className="stage-marker mono" aria-hidden="true">
-          {large ? "LIVE PREVIEW" : "MOTION STUDY"}
+          {large ? "Live preview" : "Motion study"}
         </span>
         <div className="demo-art" aria-hidden="true">
           <DemoVisual id={entry.id} />
@@ -155,7 +155,7 @@ export const DemoPlayer = ({
         {large ? (
           <span className="stage-bottom mono">
             {state === "idle"
-              ? "PRESS PLAY TO EXPLORE"
+              ? "Press play to explore"
               : `${state.toUpperCase()} · ${speed}×`}
           </span>
         ) : null}

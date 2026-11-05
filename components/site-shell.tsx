@@ -28,12 +28,16 @@ export const SiteHeader = () => {
       <div className="header-inner container">
         <Brand />
         <nav aria-label="Main navigation">
-          <Link href="/#collection">The library</Link>
+          <Link href="/#collection">
+            Library <span className="nav-count mono">{animations.length}</span>
+          </Link>
           <Link href="/#how-it-works">
-            How to use <span aria-hidden="true">↗</span>
+            How it works <span aria-hidden="true">↗</span>
           </Link>
         </nav>
-        <span className="header-note mono">A REFERENCE FOR THE RESTLESS.</span>
+        <span className="header-note mono">
+          <span className="small-dot" /> A little library of big ideas
+        </span>
       </div>
     </header>
   );
@@ -43,12 +47,14 @@ export const SiteFooter = () => {
     <footer className="site-footer container">
       <div>
         <Brand />
-        <p>A growing collection of things that move.</p>
+        <p>A shared language for things that move.</p>
       </div>
       <p className="mono">
-        MADE FOR CURIOUS MINDS.
+        Made for curious minds.
         <br />
-        <span>{animations.length} MOTIONS. ENDLESS POSSIBILITIES.</span>
+        <span>
+          {animations.length} studies. A starting point for your next idea.
+        </span>
       </p>
     </footer>
   );

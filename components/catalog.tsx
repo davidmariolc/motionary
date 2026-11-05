@@ -78,16 +78,16 @@ export const Catalog = ({
     >
       <div className="collection-heading">
         <h2 id="collection-title">
-          The collection{" "}
+          The motion library{" "}
           <span className="collection-total mono">
             {String(entries.length).padStart(2, "0")}
           </span>
         </h2>
         <span className="collection-note">
-          <span className="small-dot" /> A growing work in motion
+          Pick a motion. Press play. Make it yours.
         </span>
       </div>
-      <label className="search-label" htmlFor="animation-search">
+      <label className="search-label sr-only" htmlFor="animation-search">
         Find an animation
       </label>
       <div className="search-field">
@@ -98,7 +98,7 @@ export const Catalog = ({
           ref={input}
           type="search"
           value={query}
-          placeholder="Try “bounce”, “reveal”, or “sliding text”…"
+          placeholder="Search a motion, a feeling, or a word…"
           onChange={(event) => updateFilters(event.target.value, category)}
           onKeyDown={(event) => {
             if (event.key === "Escape") {
@@ -120,7 +120,9 @@ export const Catalog = ({
             <Icon name="close" />
           </button>
         ) : (
-          <kbd aria-hidden="true">/</kbd>
+          <span className="search-shortcut" aria-hidden="true">
+            Press <kbd>/</kbd> to search
+          </span>
         )}
       </div>
       <div className="filter-bar">
@@ -132,7 +134,7 @@ export const Catalog = ({
             onClick={() => updateFilters(query, "all")}
           >
             <Icon name="grid" size={15} />
-            All<span>{entries.length}</span>
+            All motions<span>{entries.length}</span>
           </button>
           {categories.map((item) => {
             return (
@@ -162,7 +164,7 @@ export const Catalog = ({
             : ` in ${categories.find((item) => item.id === category)?.name}`}
         </output>
         <span className="mono">
-          <Icon name="play" size={12} /> CLICK PLAY. GET INSPIRED.
+          <Icon name="play" size={14} /> Interactive, at your own pace
         </span>
       </div>
       {results.length > 0 ? (

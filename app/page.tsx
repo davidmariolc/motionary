@@ -1,38 +1,60 @@
+import Link from "next/link";
 import { Catalog } from "@/components/catalog";
-import { animations } from "@/lib/animations";
+import { DemoPlayer } from "@/components/demo-player";
+import { Icon } from "@/components/icon";
+import { animations, categories } from "@/lib/animations";
 
 const Home = () => {
+  const featured = animations.find((entry) => entry.id === "stagger");
   return (
     <main id="main-content" className="container">
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="status-dot" /> A LITTLE LIBRARY OF BIG IDEAS
+            <span className="status-dot" /> A reference for designers &
+            developers
           </p>
           <h1 id="hero-title">
-            A visual dictionary
+            A visual
             <br />
-            of <span>motion.</span>
-            <span className="title-arrow" aria-hidden="true">
-              ↗
-            </span>
+            dictionary
+            <br /> of <span>motion.</span>
           </h1>
           <p className="hero-description">
-            You know the movement. Now find the words.
-            <br className="desktop-break" /> Explore, play, and turn what you
-            see into your next prompt.
+            Find the words for the movement in your head. Play{" "}
+            {animations.length} interactive studies, learn their names, and take
+            a prompt with you.
           </p>
+          <div className="hero-actions">
+            <Link href="#collection" className="button primary-button">
+              Browse the library <Icon name="arrow" size={18} />
+            </Link>
+            <span className="hero-fact">
+              {categories.length} categories. Ready to play.
+            </span>
+          </div>
         </div>
-        <div className="hero-specimen" aria-hidden="true">
-          <span className="specimen-cross cross-top">+</span>
-          <span className="specimen-cross cross-bottom">+</span>
-          <div className="specimen-orbit orbit-one" />
-          <div className="specimen-orbit orbit-two" />
-          <div className="specimen-square square-ghost-one" />
-          <div className="specimen-square square-ghost-two" />
-          <div className="specimen-square square-main" />
-          <span className="specimen-caption">LESS GUESSING. MORE MAKING.</span>
-        </div>
+        {featured ? (
+          <div className="hero-feature">
+            <div className="feature-topline mono">
+              <span>Inside the library</span>
+              <Icon name="diagonal" size={20} />
+            </div>
+            <div className="feature-title">
+              <span className="mono">
+                Study / {String(featured.number).padStart(2, "0")}
+              </span>
+              <Link href={`/animations/${featured.id}`}>{featured.name}</Link>
+            </div>
+            <DemoPlayer entry={featured} />
+            <div className="feature-bottomline">
+              <span>{featured.description}</span>
+              <span className="mono">
+                {String(featured.number).padStart(2, "0")} / {animations.length}
+              </span>
+            </div>
+          </div>
+        ) : null}
       </section>
       <Catalog entries={animations} />
       <section
@@ -41,8 +63,15 @@ const Home = () => {
         aria-labelledby="how-title"
       >
         <div>
-          <p className="eyebrow">FROM “THAT THING” TO THE RIGHT WORDS</p>
-          <h2 id="how-title">See it. Name it. Make it.</h2>
+          <p className="eyebrow">A little less guessing</p>
+          <h2 id="how-title">
+            Your next motion,
+            <br />
+            in three steps.
+          </h2>
+          <Link href="#collection" className="text-link">
+            Find your motion <Icon name="arrow" />
+          </Link>
         </div>
         <ol>
           <li>
@@ -55,14 +84,14 @@ const Home = () => {
           <li>
             <span>02</span>
             <div>
-              <h3>Get a feel for it</h3>
+              <h3>Try the preview</h3>
               <p>Play an effect, slow it down, and see what makes it work.</p>
             </div>
           </li>
           <li>
             <span>03</span>
             <div>
-              <h3>Take the words with you</h3>
+              <h3>Copy the prompt</h3>
               <p>Copy a ready-to-use prompt and make it your own.</p>
             </div>
           </li>

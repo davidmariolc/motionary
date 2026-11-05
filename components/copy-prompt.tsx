@@ -25,8 +25,8 @@ export const CopyPrompt = ({ text }: { readonly text: string }) => {
   return (
     <section className="prompt-section" aria-labelledby="prompt-title">
       <div className="prompt-heading">
-        <h2 id="prompt-title">Take the words with you.</h2>
-        <span className="mono">READY FOR YOUR NEXT PROMPT</span>
+        <h2 id="prompt-title">A prompt to make it yours.</h2>
+        <span className="mono">Ready for your next project</span>
       </div>
       <div className="prompt-box">
         <span className="prompt-symbol" aria-hidden="true">
