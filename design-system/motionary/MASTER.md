@@ -11,6 +11,7 @@ A warm, editorial motion reference library. The journey is discover → identify
 - Preview grounds use pale neutrals by category; rhythm uses sage, type uses clay, and transitions use slate. Interface actions share the same near-black fill.
 - Maximum content width: 1280 px. One column below 640 px, two below 1100 px, three from 1100 px.
 - Mobile margins: 20 px; tablet: 32 px; desktop: 64 px minimum.
+- The desktop hero is 660 px tall so the catalog starts within a 1000 px viewport. The mobile header prioritizes the Library link.
 
 ## Taste skill adaptation
 
@@ -34,9 +35,11 @@ The marketing checkers still report expected mismatches: CSS motion specimens ar
 
 - Static compositions by default. Explicit, finite playback only. Only one preview plays at once.
 - Play resumes a paused animation. Replay starts from the beginning. Speed changes preserve progress.
+- A paused player labels its action Resume; Restart always begins again. Playback status is announced politely on detail pages. Below 360 px, speed occupies its own labeled row.
 - Pause on leaving the viewport or hiding the document. Do not auto-resume.
 - Reduced motion disables decorative UI transitions; intentionally requested demonstrations remain available.
 - Search intersects with category filters and matches names, descriptions, and synonyms.
+- Category counts reflect the current search. Active filters have a visible reset; empty categories offer matching results elsewhere without discarding the query. Recovery returns keyboard focus to search.
 - Filter state lives in the URL. Returning from a card restores filters and scroll through optional session storage.
 - Copy feedback is announced politely. A failed clipboard write leaves selectable prompt text available.
 

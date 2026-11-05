@@ -37,9 +37,6 @@ const AnimationPage = async ({ params }: PageProps<"/animations/[slug]">) => {
       </Link>
       <div className="detail-heading">
         <div>
-          <p className="eyebrow">
-            MOTION STUDY / {String(entry.number).padStart(2, "0")}
-          </p>
           <h1>
             {entry.name}
             <span>.</span>
@@ -84,7 +81,6 @@ const AnimationPage = async ({ params }: PageProps<"/animations/[slug]">) => {
       <section className="related-section" aria-labelledby="related-title">
         <div className="related-heading">
           <div>
-            <p className="eyebrow">KEEP EXPLORING</p>
             <h2 id="related-title">
               More in {category.name.toLowerCase()}
               <span>.</span>

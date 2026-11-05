@@ -10,10 +10,6 @@ const Home = () => {
     <main id="main-content" className="container">
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="status-dot" /> A reference for designers &
-            developers
-          </p>
           <h1 id="hero-title">
             A visual
             <br />
@@ -63,7 +59,6 @@ const Home = () => {
         aria-labelledby="how-title"
       >
         <div>
-          <p className="eyebrow">A little less guessing</p>
           <h2 id="how-title">
             Your next motion,
             <br />

@@ -4,6 +4,7 @@
   color-scheme: light;
 
   --background: #f7f5ef;
+  --paper: #fffefa;
   --surface: #eeece4;
   --foreground: #252722;
   --muted: #66685f;
@@ -30,6 +31,7 @@
 
 html {
   scroll-padding-top: 32px;
+  scrollbar-color: var(--control-border) var(--background);
 }
 
 body {
@@ -49,6 +51,7 @@ a {
 button,
 input,
 select {
+  caret-color: var(--accent);
   font: inherit;
 }
 
@@ -202,8 +205,7 @@ svg {
   gap: 9px;
 }
 
-.small-dot,
-.status-dot {
+.small-dot {
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -214,25 +216,19 @@ svg {
 
 .hero {
   display: grid;
-  min-height: calc(100svh - 88px);
+  min-height: 660px;
   align-items: center;
   gap: 64px;
   grid-template-columns: 1.05fr 1fr;
-  padding-block: 72px;
-}
-
-.hero .eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  padding-block: 56px;
 }
 
 .hero h1 {
-  font-size: clamp(68px, 7.3vw, 104px);
+  margin-bottom: 28px;
+  font-size: clamp(68px, 7.3vw, 96px);
   font-weight: 500;
-  letter-spacing: -6px;
+  letter-spacing: -0.04em;
   line-height: 0.98;
-  margin-block: 28px;
 }
 
 .hero h1 > span {
@@ -449,17 +445,18 @@ svg {
   padding: 0 20px;
   border: 1px solid var(--control-border);
   border-radius: 8px;
-  background: #fffefa;
+  background: var(--paper);
   color: var(--muted);
   gap: 14px;
   transition:
     border-color 140ms ease,
-    box-shadow 140ms ease;
+    outline-color 140ms ease;
 }
 
 .search-field:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px #b9432014;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .search-field input {
@@ -557,15 +554,18 @@ kbd {
 
 .results-meta {
   display: flex;
+  min-height: 44px;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: var(--muted);
   gap: 16px;
 }
 
 .results-meta output {
+  min-width: 0;
   font-size: 14px;
+  overflow-wrap: anywhere;
 }
 
 .results-meta strong {
@@ -587,6 +587,20 @@ kbd {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.reset-filters {
+  display: inline-flex;
+  min-height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 0 4px;
+  background: transparent;
+  color: var(--accent);
+  font-size: 14px;
+  gap: 6px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .animation-card {
   display: flex;
   overflow: hidden;
@@ -594,7 +608,7 @@ kbd {
   flex-direction: column;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: #fffefa;
+  background: var(--paper);
   transition:
     transform 180ms var(--ease-out),
     border-color 140ms ease;
@@ -686,13 +700,13 @@ kbd {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background: #fffefa;
+  background: var(--paper);
   border-block: 1px solid var(--border);
 }
 
 .preview-button {
   display: flex;
-  min-width: 64px;
+  min-width: 88px;
   min-height: 44px;
   align-items: center;
   padding: 0;
@@ -1621,6 +1635,10 @@ kbd {
   color: var(--muted);
 }
 
+.demo-player-large .primary-button {
+  min-width: 112px;
+}
+
 .speed-control {
   display: flex;
   align-items: center;
@@ -1742,6 +1760,7 @@ kbd {
 }
 
 .prompt-box p {
+  max-width: 75ch;
   font-family: var(--font-metadata), monospace;
   font-size: 13px;
   line-height: 1.9;
@@ -1763,6 +1782,7 @@ kbd {
 }
 
 .copy-error {
+  display: block;
   margin-top: 16px;
   color: var(--accent);
   font-size: 13px;
@@ -1905,12 +1925,7 @@ kbd {
 
   .hero h1 {
     font-size: clamp(64px, 8vw, 84px);
-    letter-spacing: -4px;
-  }
-
-  .hero .eyebrow {
-    max-width: 250px;
-    font-size: 13px;
+    letter-spacing: -0.04em;
   }
 
   .hero-feature {
@@ -2093,7 +2108,7 @@ kbd {
     font-size: 13px;
   }
 
-  .header-inner nav a:first-child {
+  .header-inner nav a:last-child {
     display: none;
   }
 
@@ -2103,15 +2118,10 @@ kbd {
     padding-block: 32px;
   }
 
-  .hero .eyebrow {
-    max-width: none;
-    font-size: 13px;
-  }
-
   .hero h1 {
+    margin-bottom: 24px;
     font-size: clamp(54px, 15vw, 72px);
-    letter-spacing: -3.5px;
-    margin-block: 24px;
+    letter-spacing: -0.04em;
   }
 
   .hero h1 br:nth-of-type(2) {
@@ -2339,6 +2349,22 @@ kbd {
 
   .related-heading h2 {
     font-size: 30px;
+  }
+}
+
+@media (width < 360px) {
+  .demo-player-large .player-controls .button {
+    flex: 1;
+  }
+
+  .speed-control {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+
+  .speed-control label {
+    display: block;
   }
 }
 

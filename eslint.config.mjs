@@ -3,6 +3,8 @@ import react from "ultracite/eslint/react";
 import next from "ultracite/eslint/next";
 
 export default [
+  // Installed skills maintain their own code standards.
+  { ignores: [".agents/skills/**"] },
   ...core,
   ...react,
   ...next,

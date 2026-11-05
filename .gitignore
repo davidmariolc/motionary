@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Platform-specific Impeccable engine (downloaded by the launcher)
+/.agents/skills/impeccable/scripts/bin/

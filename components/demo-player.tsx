@@ -9,6 +9,13 @@ import { DemoVisual } from "@/components/demo-visual";
 import { Icon } from "@/components/icon";
 import type { AnimationEntry } from "@/lib/animations";
 
+const playbackMessages = {
+  finished: "Finished — play again",
+  idle: "Press play to explore",
+  paused: "Paused",
+  playing: "Playing",
+} as const;
+
 export const DemoPlayer = ({
   entry,
   large = false,
@@ -121,11 +128,17 @@ export const DemoPlayer = ({
     }
   };
   const isPlaying = state === "playing";
+  const stageStatus =
+    state === "idle"
+      ? playbackMessages.idle
+      : `${playbackMessages[state]} · ${speed}×`;
   let label = "Play";
   if (isPlaying) {
     label = "Pause";
   } else if (state === "finished") {
     label = "Replay";
+  } else if (state === "paused") {
+    label = "Resume";
   }
   let icon: "pause" | "replay" | "play" = "play";
   if (isPlaying) {
@@ -153,11 +166,9 @@ export const DemoPlayer = ({
           <DemoVisual id={entry.id} />
         </div>
         {large ? (
-          <span className="stage-bottom mono">
-            {state === "idle"
-              ? "Press play to explore"
-              : `${state.toUpperCase()} · ${speed}×`}
-          </span>
+          <output className="stage-bottom mono" aria-live="polite">
+            {stageStatus}
+          </output>
         ) : null}
       </figure>
       <div className="player-controls">
@@ -179,15 +190,16 @@ export const DemoPlayer = ({
               type="button"
               className="button replay-button"
               onClick={() => play(true)}
-              aria-label={`Replay ${entry.name}`}
+              aria-label={`Restart ${entry.name} from the beginning`}
             >
               <Icon name="replay" />
-              <span>Replay</span>
+              <span>Restart</span>
             </button>
             <div className="speed-control">
               <label htmlFor={speedId}>Speed</label>
               <select
                 id={speedId}
+                aria-label="Playback speed"
                 value={speed}
                 onChange={(event) => changeSpeed(Number(event.target.value))}
               >

@@ -51,6 +51,11 @@ export const Catalog = ({
     ? requestedCategory
     : "all";
   const results = filterAnimations(entries, query, category);
+  const allResults = filterAnimations(entries, query, "all");
+  const hasFilters = query.length > 0 || category !== "all";
+  const canSearchAll = category !== "all" && allResults.length > 0;
+  const matchesLabel =
+    allResults.length === 1 ? "animation matches" : "animations match";
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => {
     restoreCatalog();
@@ -95,6 +100,7 @@ export const Catalog = ({
         <input
           id="animation-search"
           aria-label="Find an animation"
+          aria-controls="animation-results"
           ref={input}
           type="search"
           value={query}
@@ -131,10 +137,11 @@ export const Catalog = ({
             type="button"
             className="filter-button"
             aria-pressed={category === "all"}
+            aria-controls="animation-results"
             onClick={() => updateFilters(query, "all")}
           >
             <Icon name="grid" size={15} />
-            All motions<span>{entries.length}</span>
+            All motions<span>{allResults.length}</span>
           </button>
           {categories.map((item) => {
             return (
@@ -143,12 +150,16 @@ export const Catalog = ({
                 key={item.id}
                 className="filter-button"
                 aria-pressed={category === item.id}
+                aria-controls="animation-results"
                 onClick={() => updateFilters(query, item.id)}
               >
                 <Icon name={item.icon} size={15} />
                 {item.name}
                 <span>
-                  {entries.filter((entry) => entry.category === item.id).length}
+                  {
+                    allResults.filter((entry) => entry.category === item.id)
+                      .length
+                  }
                 </span>
               </button>
             );
@@ -162,33 +173,56 @@ export const Catalog = ({
           {category === "all"
             ? ""
             : ` in ${categories.find((item) => item.id === category)?.name}`}
+          {query ? <> for “{query}”</> : null}
         </output>
-        <span className="mono">
-          <Icon name="play" size={14} /> Interactive, at your own pace
-        </span>
-      </div>
-      {results.length > 0 ? (
-        <div className="animation-grid">
-          {results.map((entry) => {
-            const { id } = entry;
-            return <AnimationCard key={id} entry={entry} />;
-          })}
-        </div>
-      ) : (
-        <div className="empty-state">
-          <Icon name="search" size={32} />
-          <h3>No animations found</h3>
-          <p>Try a different word or explore the full collection.</p>
+        {hasFilters ? (
           <button
             type="button"
-            className="button primary-button"
-            onClick={() => updateFilters("", "all")}
+            className="reset-filters"
+            onClick={() => {
+              updateFilters("", "all");
+              input.current?.focus();
+            }}
           >
-            Clear filters
-            <Icon name="arrow" />
+            <Icon name="close" size={14} /> Reset filters
           </button>
-        </div>
-      )}
+        ) : (
+          <span className="mono">
+            <Icon name="play" size={14} /> Interactive, at your own pace
+          </span>
+        )}
+      </div>
+      <div id="animation-results">
+        {results.length > 0 ? (
+          <div className="animation-grid">
+            {results.map((entry) => {
+              const { id } = entry;
+              return <AnimationCard key={id} entry={entry} />;
+            })}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <Icon name="search" size={32} />
+            <h3>No animations found</h3>
+            <p>
+              {canSearchAll
+                ? `${allResults.length} ${matchesLabel} your search in other categories.`
+                : "Try a different word or explore the full collection."}
+            </p>
+            <button
+              type="button"
+              className="button primary-button"
+              onClick={() => {
+                updateFilters(canSearchAll ? query : "", "all");
+                input.current?.focus();
+              }}
+            >
+              {canSearchAll ? "Search all categories" : "Clear filters"}
+              <Icon name="arrow" />
+            </button>
+          </div>
+        )}
+      </div>
     </section>
   );
 };
