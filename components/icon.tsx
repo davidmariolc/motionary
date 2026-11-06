@@ -12,6 +12,7 @@ import { PlayIcon } from "@phosphor-icons/react/dist/ssr/Play";
 import { ShapesIcon } from "@phosphor-icons/react/dist/ssr/Shapes";
 import { SignInIcon } from "@phosphor-icons/react/dist/ssr/SignIn";
 import { TextTIcon } from "@phosphor-icons/react/dist/ssr/TextT";
+import { TranslateIcon } from "@phosphor-icons/react/dist/ssr/Translate";
 import { WaveformIcon } from "@phosphor-icons/react/dist/ssr/Waveform";
 import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 
@@ -31,6 +32,7 @@ const icons = {
   search: MagnifyingGlassIcon,
   shapes: ShapesIcon,
   text: TextTIcon,
+  translate: TranslateIcon,
   wave: WaveformIcon,
 } as const;
 export type IconName = keyof typeof icons;

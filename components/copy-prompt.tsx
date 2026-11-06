@@ -1,8 +1,10 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "@/components/icon";
 
 export const CopyPrompt = ({ text }: { readonly text: string }) => {
+  const t = useTranslations("Prompt");
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -25,8 +27,8 @@ export const CopyPrompt = ({ text }: { readonly text: string }) => {
   return (
     <section className="prompt-section" aria-labelledby="prompt-title">
       <div className="prompt-heading">
-        <h2 id="prompt-title">A prompt to make it yours.</h2>
-        <span className="mono">Ready for your next project</span>
+        <h2 id="prompt-title">{t("title")}</h2>
+        <span className="mono">{t("ready")}</span>
       </div>
       <div className="prompt-box">
         <span className="prompt-symbol" aria-hidden="true">
@@ -35,20 +37,18 @@ export const CopyPrompt = ({ text }: { readonly text: string }) => {
         <p>{text}</p>
       </div>
       <div className="prompt-actions">
-        <span>Copy it. Tweak it. Make it yours.</span>
+        <span>{t("hint")}</span>
         <button type="button" className="button primary-button" onClick={copy}>
           <Icon name={status === "copied" ? "check" : "copy"} />
-          {status === "copied" ? "Copied!" : "Copy prompt"}
+          {t(status === "copied" ? "copied" : "copy")}
         </button>
       </div>
       <output
         className={status === "failed" ? "copy-status copy-error" : "sr-only"}
         aria-live="polite"
       >
-        {status === "copied" ? "Copied! Prompt copied to clipboard." : ""}
-        {status === "failed"
-          ? "Copy was unavailable. Select the prompt above and copy it manually."
-          : ""}
+        {status === "copied" ? t("success") : ""}
+        {status === "failed" ? t("failure") : ""}
       </output>
     </section>
   );

@@ -1,7 +1,7 @@
 const storageKey = "motionary:library:v1";
 const filtersEvent = "motionary:filters";
 export const rememberCatalog = () => {
-  if (window.location.pathname !== "/") {
+  if (!/^\/(?:en|es)?\/?$/u.test(window.location.pathname)) {
     return;
   }
   const data = JSON.stringify({
@@ -60,7 +60,7 @@ export const restoreCatalog = () => {
     window.history.replaceState(
       window.history.state,
       "",
-      `/${search}${window.location.hash}`
+      `${window.location.pathname}${search}${window.location.hash}`
     );
     window.dispatchEvent(new Event(filtersEvent));
   }

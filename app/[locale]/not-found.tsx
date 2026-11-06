@@ -1,17 +1,16 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Icon } from "@/components/icon";
 
 const NotFound = () => {
+  const t = useTranslations("NotFound");
   return (
     <main id="main-content" className="not-found container">
-      <p className="eyebrow">404 / OUT OF FRAME</p>
-      <h1>This motion got away.</h1>
-      <p>
-        That animation is not in the collection. There are plenty more to
-        explore.
-      </p>
+      <p className="eyebrow">{t("eyebrow")}</p>
+      <h1>{t("title")}</h1>
+      <p>{t("description")}</p>
       <Link className="button primary-button" href="/">
-        Back to library
+        {t("back")}
         <Icon name="arrow" />
       </Link>
     </main>

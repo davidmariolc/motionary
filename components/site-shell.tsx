@@ -1,9 +1,12 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { animations } from "@/lib/animations";
 
 export const Brand = () => {
+  const t = useTranslations("Shell");
   return (
-    <Link href="/" className="brand" aria-label="Motionary home">
+    <Link href="/" className="brand" aria-label={t("home")}>
       <svg
         width="28"
         height="28"
@@ -23,38 +26,40 @@ export const Brand = () => {
   );
 };
 export const SiteHeader = () => {
+  const t = useTranslations("Shell");
   return (
     <header className="site-header">
       <div className="header-inner container">
         <Brand />
-        <nav aria-label="Main navigation">
+        <nav aria-label={t("navigation")}>
           <Link href="/#collection">
-            Library <span className="nav-count mono">{animations.length}</span>
+            {t("library")}{" "}
+            <span className="nav-count mono">{animations.length}</span>
           </Link>
           <Link href="/#how-it-works">
-            How it works <span aria-hidden="true">↗</span>
+            {t("how")} <span aria-hidden="true">↗</span>
           </Link>
         </nav>
         <span className="header-note mono">
-          <span className="small-dot" /> A little library of big ideas
+          <span className="small-dot" /> {t("note")}
         </span>
+        <LanguageSwitcher />
       </div>
     </header>
   );
 };
 export const SiteFooter = () => {
+  const t = useTranslations("Shell");
   return (
     <footer className="site-footer container">
       <div>
         <Brand />
-        <p>A shared language for things that move.</p>
+        <p>{t("tagline")}</p>
       </div>
       <p className="mono">
-        Made for curious minds.
+        {t("made")}
         <br />
-        <span>
-          {animations.length} studies. A starting point for your next idea.
-        </span>
+        <span>{t("studies", { count: animations.length })}</span>
       </p>
     </footer>
   );

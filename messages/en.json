@@ -1,0 +1,343 @@
+{
+  "Metadata": {
+    "title": "Motionary — A visual dictionary of motion",
+    "description": "A visual dictionary of motion. Explore interactive animations, learn their names, and copy ready-to-use prompts for your next idea."
+  },
+  "Shell": {
+    "skip": "Skip to content",
+    "home": "Motionary home",
+    "navigation": "Main navigation",
+    "library": "Library",
+    "how": "How it works",
+    "note": "A little library of big ideas",
+    "tagline": "A shared language for things that move.",
+    "made": "Made for curious minds.",
+    "studies": "{count} studies. A starting point for your next idea.",
+    "language": "Language",
+    "switchLanguage": "{current}. Switch to {language}"
+  },
+  "Home": {
+    "heading": "A visual<br></br> dictionary<br></br>  of <accent>motion.</accent>",
+    "description": "Find the words for the movement in your head. Play {count} interactive studies, learn their names, and take a prompt with you.",
+    "browse": "Browse the library",
+    "categories": "{count} categories. Ready to play.",
+    "inside": "Inside the library",
+    "study": "Study / {number}",
+    "howHeading": "Your next motion,<br></br>in three steps.",
+    "find": "Find your motion",
+    "findDescription": "Browse the collection or search for what you have in mind.",
+    "preview": "Try the preview",
+    "previewDescription": "Play an effect, slow it down, and see what makes it work.",
+    "copy": "Copy the prompt",
+    "copyDescription": "Copy a ready-to-use prompt and make it your own."
+  },
+  "Catalog": {
+    "title": "The motion library",
+    "note": "Pick a motion. Press play. Make it yours.",
+    "search": "Find an animation",
+    "placeholder": "Search a motion, a feeling, or a word…",
+    "clear": "Clear search",
+    "shortcut": "Press <key>/</key> to search",
+    "filter": "Filter by category",
+    "all": "All motions",
+    "results": "Showing <strong>{count}</strong> {count, plural, one {animation} other {animations}}",
+    "inCategory": " in {category}",
+    "forQuery": " for “{query}”",
+    "reset": "Reset filters",
+    "interactive": "Interactive, at your own pace",
+    "empty": "No animations found",
+    "otherMatches": "{count, plural, one {# animation matches} other {# animations match}} your search in other categories.",
+    "tryAgain": "Try a different word or explore the full collection.",
+    "searchAll": "Search all categories",
+    "clearFilters": "Clear filters",
+    "view": "View animation"
+  },
+  "Detail": {
+    "back": "Back to library",
+    "playback": "One motion at a time. Play it at your own pace.",
+    "what": "What it does",
+    "when": "When to use it",
+    "duration": "BASE DURATION",
+    "category": "CATEGORY",
+    "more": "More in {category}",
+    "viewCategory": "View category",
+    "notFound": "Animation not found"
+  },
+  "Prompt": {
+    "title": "A prompt to make it yours.",
+    "ready": "Ready for your next project",
+    "hint": "Copy it. Tweak it. Make it yours.",
+    "copied": "Copied!",
+    "copy": "Copy prompt",
+    "success": "Copied! Prompt copied to clipboard.",
+    "failure": "Copy was unavailable. Select the prompt above and copy it manually."
+  },
+  "Player": {
+    "finished": "Finished — play again",
+    "idle": "Press play to explore",
+    "paused": "Paused",
+    "playing": "Playing",
+    "play": "Play",
+    "pause": "Pause",
+    "replay": "Replay",
+    "resume": "Resume",
+    "action": "{action} {name}",
+    "live": "Live preview",
+    "study": "Motion study",
+    "restartLabel": "Restart {name} from the beginning",
+    "restart": "Restart",
+    "speed": "Speed",
+    "playbackSpeed": "Playback speed"
+  },
+  "Visual": {
+    "nextIdea": "YOUR NEXT IDEA",
+    "typeLine": "Make it move.",
+    "everyDay": "A LITTLE MORE EVERY DAY.",
+    "wordOne": "Good",
+    "wordTwo": "things",
+    "wordThree": "take",
+    "wordFour": "motion.",
+    "ideas": "IDEAS IN MOTION",
+    "makeMove": "MAKE SOMETHING MOVE",
+    "highlightLead": "Some ideas are",
+    "highlightPhrase": "worth a second look.",
+    "makeIt": "MAKE IT",
+    "simple": "simple.",
+    "moving": "moving.",
+    "look": "LOOK",
+    "closer": "CLOSER.",
+    "before": "Before",
+    "after": "After",
+    "bigPicture": "THE BIG PICTURE",
+    "million": "8 million",
+    "counting": "IDEAS AND COUNTING.",
+    "progress": "A WORK IN PROGRESS",
+    "morph": "SAME SHAPE. NEW POSSIBILITIES.",
+    "linear": "linear"
+  },
+  "Loading": {
+    "label": "Loading animation",
+    "study": "MOTION STUDY",
+    "title": "Just a moment",
+    "description": "Getting the next idea ready.",
+    "status": "LOADING ANIMATION…"
+  },
+  "NotFound": {
+    "eyebrow": "404 / OUT OF FRAME",
+    "title": "This motion got away.",
+    "description": "That animation is not in the collection. There are plenty more to explore.",
+    "back": "Back to library"
+  },
+  "Categories": {
+    "entrances": {
+      "name": "Entrances",
+      "short": "Entrance"
+    },
+    "rhythm": {
+      "name": "Rhythm",
+      "short": "Rhythm"
+    },
+    "text-numbers": {
+      "name": "Text & Numbers",
+      "short": "Text & numbers"
+    },
+    "shapes-transitions": {
+      "name": "Shapes & Transitions",
+      "short": "Shape & transition"
+    }
+  },
+  "Animations": {
+    "fade-in": {
+      "name": "Fade in",
+      "description": "A quiet entrance. From invisible to there.",
+      "explanation": "An element gradually becomes visible, moving from transparent to fully opaque. Its position stays still, letting the content speak for itself.",
+      "usage": "Introduce images, supporting content, or a gentle change of state without pulling attention away from the page.",
+      "synonyms": "appear opacity dissolve surgir Aparición gradual aparecer opacidad disolver desvanecer Fade in appear opacity dissolve surgir",
+      "prompt": "Reveal the element with a fade-in: animate its opacity from 0 to 1 over 400 ms using an ease-out curve. Keep its position and size unchanged."
+    },
+    "slide-in": {
+      "name": "Slide in",
+      "description": "A little movement in the right direction.",
+      "explanation": "An element travels a short distance into its final position while fading into view. The direction gives the entrance a sense of origin.",
+      "usage": "Introduce a panel, a new section, or content entering from the edge of a layout.",
+      "synonyms": "move translate entrance sliding deslizar Entrada deslizante mover trasladar entrada deslizar deslizamiento Slide in move translate entrance sliding deslizar",
+      "prompt": "Reveal the element with a slide-in from below: animate translateY from 64 px to 0 and opacity from 0 to 1 over 700 ms with ease-out. Keep the surrounding layout fixed."
+    },
+    "pop-in": {
+      "name": "Pop in",
+      "description": "Small start. A slightly bouncy arrival.",
+      "explanation": "An element scales past its resting size, then settles back. The small overshoot makes the entrance feel playful and physical.",
+      "usage": "Draw attention to a badge, a new item, or an occasional moment of positive feedback.",
+      "synonyms": "pop scale appear jump salto Entrada con rebote escala aparecer salto rebotar Pop in pop scale appear jump salto",
+      "prompt": "Make the element pop in over 700 ms: begin at 70% scale and zero opacity, grow to 112%, and settle at 100%. Keep its center fixed and use a soft overshoot."
+    },
+    "scale-up": {
+      "name": "Scale up",
+      "description": "Grow into place, without the bounce.",
+      "explanation": "An element grows smoothly from a smaller size to its final dimensions. Unlike pop in, it settles without overshooting.",
+      "usage": "Bring an image, dialog, or focal element into view with a simple sense of depth.",
+      "synonyms": "grow enlarge zoom entrance crescer Aumento de escala crecer ampliar zoom entrada Scale up grow enlarge zoom entrance crescer",
+      "prompt": "Reveal the element by scaling it from 55% to 100% while fading opacity from 0 to 1 over 700 ms using ease-out. Do not overshoot or change layout dimensions."
+    },
+    "blur-in": {
+      "name": "Blur in",
+      "description": "From out of focus to perfectly clear.",
+      "explanation": "A soft, blurred element becomes sharp and fully visible. The reveal changes focus rather than moving across the screen.",
+      "usage": "Give a headline, photograph, or editorial reveal a cinematic entrance. Use sparingly because blur requires painting.",
+      "synonyms": "focus sharp defocus blur reveal borrado Entrada desde desenfoque enfoque nitidez desenfoque borroso revelar Blur in focus sharp defocus blur reveal borrado",
+      "prompt": "Reveal the element over 900 ms by animating filter blur from 18 px to 0 and opacity from 0 to 1 with ease-out. Keep position and size fixed."
+    },
+    "stagger": {
+      "name": "Stagger",
+      "description": "One by one. Better together.",
+      "explanation": "A group shares the same entrance, but each item begins a little after the last. The sequence turns separate elements into a readable rhythm.",
+      "usage": "Introduce cards, list items, or a small group of related elements in a deliberate order.",
+      "synonyms": "cascade sequence delay list cascata Entrada escalonada cascada secuencia retraso lista escalonado Stagger cascade sequence delay list cascata",
+      "prompt": "Reveal four items with a stagger: fade each from 0 to 1 and translateY from 30 px to 0 over 500 ms using ease-out. Start each item 130 ms after the previous one."
+    },
+    "overshoot": {
+      "name": "Overshoot",
+      "description": "Go a little too far. Then settle in.",
+      "explanation": "An element travels beyond its destination and gently returns. That extra movement suggests momentum rather than an abrupt stop.",
+      "usage": "Give a meaningful entrance or repositioning a small sense of weight and personality.",
+      "synonyms": "past return momentum settle passa Sobrepaso pasar retorno inercia estabilizar sobrepasar Overshoot past return momentum settle passa",
+      "prompt": "Move the element horizontally from -90 px to 0 over 1000 ms. Pass the destination by 22 px, then settle at 0 with a single soft overshoot."
+    },
+    "bounce": {
+      "name": "Bounce",
+      "description": "A landing with a little life in it.",
+      "explanation": "An element falls toward a surface and rebounds with progressively smaller hops, as if gravity is bringing it to rest.",
+      "usage": "Illustrate a landing or add occasional playful feedback to a successful action.",
+      "synonyms": "hop gravity ball rebound quicar Rebote salto gravedad pelota rebotar Bounce hop gravity ball rebound quicar",
+      "prompt": "Animate a square dropping toward a baseline over 1300 ms. Bounce upward three times with decreasing heights, then rest on the baseline. Keep horizontal position fixed."
+    },
+    "spring": {
+      "name": "Spring",
+      "description": "Stretch, release, find your balance.",
+      "explanation": "A displaced element oscillates around its resting position, losing energy with each swing. It resembles an object suspended on a spring.",
+      "usage": "Demonstrate physical settling and movement that should feel weighted.",
+      "synonyms": "physics oscillation damping mola Resorte fisica física oscilación amortiguación muelle Spring physics oscillation damping mola",
+      "prompt": "Animate a suspended square with a damped spring over 1500 ms. Pull it down 60 px, then oscillate around its resting position with decreasing amplitude until it comes to rest."
+    },
+    "ease-in-out": {
+      "name": "Ease in-out",
+      "description": "Start slow. Find your pace. Slow down.",
+      "explanation": "Movement accelerates gradually and decelerates before stopping. A linear comparison makes the difference in speed easy to see.",
+      "usage": "Move an element between two visible positions when both departure and arrival should feel deliberate.",
+      "synonyms": "accelerate decelerate smooth easing linear Aceleración y frenado acelerar desacelerar suave curva lineal Ease in-out accelerate decelerate smooth easing linear",
+      "prompt": "Move two markers horizontally across equal tracks over 1400 ms. Use linear easing on the first and ease-in-out on the second so their acceleration and deceleration can be compared."
+    },
+    "elastic": {
+      "name": "Elastic",
+      "description": "A rubber-band kind of energy.",
+      "explanation": "An element snaps toward its destination and wobbles around it with elastic rebounds. It feels more pronounced and stretchy than a single overshoot.",
+      "usage": "Explain elastic motion or add a rare expressive accent to a playful experience.",
+      "synonyms": "rubber band stretch snap elastico Elástico banda goma estirar elástico elastico Elastic rubber band stretch snap elastico",
+      "prompt": "Move the square from -90 px to 0 over 1600 ms: overshoot by 38 px, rebound by 24 px, then oscillate with decreasing amplitude until resting at 0."
+    },
+    "pulse": {
+      "name": "Pulse",
+      "description": "A small beat that says: look here.",
+      "explanation": "An element expands and returns to its original size. A fading outer ring reinforces the beat without changing the surrounding layout.",
+      "usage": "Briefly point out a location, available action, or status change. Avoid endless attention-seeking loops.",
+      "synonyms": "beat attention ring location pulsar Pulso latido atención anillo ubicación pulsar Pulse beat attention ring location pulsar",
+      "prompt": "Create one pulse over 1100 ms: scale the central marker from 1 to 1.18 and back to 1. Expand an outer ring from 1 to 2.2 while fading it out. Do not loop automatically."
+    },
+    "typewriter": {
+      "name": "Typewriter",
+      "description": "A thought, one character at a time.",
+      "explanation": "Text is revealed in discrete character-sized steps, accompanied by a cursor. The letters appear in reading order rather than fading together.",
+      "usage": "Present a short command, an occasional narrative line, or a terminal-inspired message.",
+      "synonyms": "typing character cursor machine maquina Máquina de escribir escribir carácter cursor maquina máquina Typewriter typing character cursor machine maquina",
+      "prompt": "Reveal “Make it move.” one character at a time over 1500 ms using 13 discrete steps. Keep a caret at the end of the visible text and keep the line position fixed."
+    },
+    "count-up": {
+      "name": "Count up",
+      "description": "Numbers with a sense of progress.",
+      "explanation": "A numeric value increases from zero to a target. The unit stays still so the viewer can follow the changing value.",
+      "usage": "Introduce a meaningful statistic or visualize progress toward a fixed number.",
+      "synonyms": "counter counting number statistic anos Conteo ascendente contador contar número estadística Count up counter counting number statistic anos",
+      "prompt": "Animate a numeric counter from 0 to 100 over 1600 ms with ease-out. Keep the percent sign stationary and use tabular numerals to prevent layout shift."
+    },
+    "word-reveal": {
+      "name": "Word reveal",
+      "description": "Give every word its own moment.",
+      "explanation": "A sentence appears word by word, combining a small vertical movement with a fade. The order follows the natural reading direction.",
+      "usage": "Reveal a short headline or emphasize the pacing of a concise editorial sentence.",
+      "synonyms": "split text words sequential palavra Aparición por palabras texto palabras secuencia revelar Word reveal split text words sequential palavra",
+      "prompt": "Reveal “Good things take motion.” word by word. Animate each word from translateY(18 px) and opacity 0 to its resting position and opacity 1 over 450 ms, with 230 ms between word starts."
+    },
+    "ticker": {
+      "name": "Ticker",
+      "description": "Keep the words moving along.",
+      "explanation": "A continuous strip of text travels horizontally through a clipped window. Linear speed keeps movement steady and readable.",
+      "usage": "Show a short announcement or an editorial strip with optional playback.",
+      "synonyms": "marquee scrolling sliding text rolling letreiro Texto deslizante marquesina desplazar deslizar texto continuo Ticker marquee scrolling sliding text rolling letreiro",
+      "prompt": "Move a horizontal strip reading “IDEAS IN MOTION — MAKE SOMETHING MOVE —” from right to left at a constant speed over 2600 ms, clipped to its container. Play one pass and provide pause controls."
+    },
+    "highlight": {
+      "name": "Highlight",
+      "description": "A moving underline for your point.",
+      "explanation": "A colored highlight sweeps behind a phrase, drawing attention to words that remain still and readable.",
+      "usage": "Emphasize a key phrase or important takeaway without moving the text.",
+      "synonyms": "marker emphasis underline grifar Resaltado marcador énfasis subrayar resaltar Highlight marker emphasis underline grifar",
+      "prompt": "Sweep a lime highlight from left to right behind “worth a second look” over 1000 ms using ease-in-out. Keep the text fixed, fully visible, and readable throughout."
+    },
+    "text-swap": {
+      "name": "Text swap",
+      "description": "Same sentence. A fresh possibility.",
+      "explanation": "A word slides out of a clipped text window as another slides in. The surrounding sentence stays still.",
+      "usage": "Show alternatives within one short headline or switch between product qualities.",
+      "synonyms": "rotating word change replace trocar Cambio de texto rotar palabra cambiar reemplazar Text swap rotating word change replace trocar",
+      "prompt": "Under the fixed label “MAKE IT”, slide “simple.” upward out of a clipped window while “moving.” enters from below over 1000 ms using ease-in-out. Preserve the text container height."
+    },
+    "draw-on": {
+      "name": "Draw on",
+      "description": "A line finding its way into being.",
+      "explanation": "An outline is progressively drawn along a path. Animating the visible stroke makes the shape look as though a pen is tracing it.",
+      "usage": "Reveal an illustration, route, icon, or simple hand-drawn accent.",
+      "synonyms": "svg stroke path trace drawing traco Trazado progresivo svg trazo trayectoria dibujar dibujo Draw on svg stroke path trace drawing traco",
+      "prompt": "Draw an SVG path from start to finish over 1600 ms with ease-in-out by animating stroke-dashoffset from the total path length to 0. Use a lime stroke and no fill."
+    },
+    "mask-reveal": {
+      "name": "Mask reveal",
+      "description": "Uncover what was there all along.",
+      "explanation": "A clipping mask expands to uncover an element. The content stays still while its visible area grows.",
+      "usage": "Reveal an image, geometric composition, or headline with a radial opening.",
+      "synonyms": "clip clipping circle uncover mascara Revelado con máscara recorte círculo descubrir máscara mascara Mask reveal clip clipping circle uncover mascara",
+      "prompt": "Reveal the composition with an expanding circular clip-path over 1100 ms using ease-out. Expand the circle from 0% to 75% at the center without scaling the underlying content."
+    },
+    "wipe": {
+      "name": "Wipe",
+      "description": "One scene makes way for another.",
+      "explanation": "A new surface sweeps across the old one, replacing it along a clean moving edge.",
+      "usage": "Demonstrate a before-and-after or switch between two distinct scenes.",
+      "synonyms": "curtain transition before after cortina Barrido cortina transición antes después Wipe curtain transition before after cortina",
+      "prompt": "Transition from a dark panel labeled “Before” to a lime panel labeled “After” using a left-to-right wipe over 1200 ms with ease-in-out. Keep both labels stationary in their panels."
+    },
+    "punch-zoom": {
+      "name": "Punch zoom",
+      "description": "A closer look. An instant of impact.",
+      "explanation": "The entire composition quickly zooms inward and settles back. This brief camera-like move makes the focal content feel more immediate.",
+      "usage": "Add occasional impact to a reveal, key number, or storytelling beat.",
+      "synonyms": "camera impact zoom punch snap Zoom de impacto cámara impacto zoom acercar Punch zoom camera impact zoom punch snap",
+      "prompt": "Create a punch zoom on a framed “8 million ideas” composition over 800 ms: quickly scale from 1 to 1.3, then settle at 1. Keep the transform origin centered and clip the scene to its viewport."
+    },
+    "bar-grow": {
+      "name": "Bar grow",
+      "description": "From a starting point to something more.",
+      "explanation": "A bar extends from its anchored edge toward its final length. Scaling avoids moving the surrounding layout.",
+      "usage": "Introduce a progress indicator or show the relative size of a simple value.",
+      "synonyms": "progress fill chart loading barra Crecimiento de barra progreso relleno gráfico carga barra Bar grow progress fill chart loading barra",
+      "prompt": "Grow a horizontal lime bar from scaleX(0) to scaleX(1) over 1200 ms using ease-out with transform-origin at the left edge. Keep its container and label fixed."
+    },
+    "morph": {
+      "name": "Morph",
+      "description": "One shape. A different possibility.",
+      "explanation": "A square smoothly rounds into a circle while keeping the same center and visual continuity.",
+      "usage": "Explain a transformation or connect related visual states through a shared shape.",
+      "synonyms": "shape transformation circle square border radius forma Transformación de forma forma transformación círculo cuadrado radio borde Morph shape transformation circle square border radius forma",
+      "prompt": "Morph a lime square into a circle over 1400 ms using ease-in-out by animating border-radius from 8% to 50% with a subtle quarter-turn rotation. Preserve its center and size."
+    }
+  }
+}

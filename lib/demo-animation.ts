@@ -2,6 +2,7 @@ import type { AnimationEntry } from "@/lib/animations";
 
 const linear = "linear";
 const easeInOutNative = "ease-in-out";
+const restHorizontalTransform = "translateX(0)";
 const restTransform = "translateY(0)";
 const easeOut = "cubic-bezier(0.23, 1, 0.32, 1)";
 const easeInOut = "cubic-bezier(0.77, 0, 0.175, 1)";
@@ -9,12 +10,19 @@ const translateX = (values: number[]): Keyframe[] =>
   values.map((value) => ({ transform: `translateX(${value}px)` }));
 const translateY = (values: number[]): Keyframe[] =>
   values.map((value) => ({ transform: `translateY(${value}px)` }));
-const getTextAndShapeFrames = (id: string, index: number): Keyframe[] => {
+const getTextAndShapeFrames = (
+  id: string,
+  index: number,
+  characterCount: number
+): Keyframe[] => {
   switch (id) {
     case "typewriter": {
       return index === 0
         ? [{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)" }]
-        : [{ transform: "translateX(-13ch)" }, { transform: "translateX(0)" }];
+        : [
+            { transform: `translateX(-${characterCount}ch)` },
+            { transform: restHorizontalTransform },
+          ];
     }
     case "count-up": {
       return [{ opacity: 1 }, { opacity: 1 }];
@@ -73,7 +81,11 @@ const getTextAndShapeFrames = (id: string, index: number): Keyframe[] => {
     }
   }
 };
-const getFrames = (id: string, index: number): Keyframe[] => {
+const getFrames = (
+  id: string,
+  index: number,
+  characterCount: number
+): Keyframe[] => {
   switch (id) {
     case "fade-in": {
       return [{ opacity: 0 }, { opacity: 1 }];
@@ -129,7 +141,7 @@ const getFrames = (id: string, index: number): Keyframe[] => {
     }
     case easeInOutNative: {
       return [
-        { transform: "translateX(0)" },
+        { transform: restHorizontalTransform },
         { transform: "translateX(170px)" },
       ];
     }
@@ -146,13 +158,13 @@ const getFrames = (id: string, index: number): Keyframe[] => {
           ];
     }
     default: {
-      return getTextAndShapeFrames(id, index);
+      return getTextAndShapeFrames(id, index, characterCount);
     }
   }
 };
-const getEasing = (id: string, index: number) => {
+const getEasing = (id: string, index: number, characterCount: number) => {
   if (id === "typewriter") {
-    return "steps(13, end)";
+    return `steps(${characterCount}, end)`;
   }
   if (
     id === "ticker" ||
@@ -183,6 +195,8 @@ export const createDemoAnimations = (
   stage: HTMLElement,
   entry: AnimationEntry
 ): Animation[] => {
+  const characterCount =
+    stage.querySelector(".type-line")?.textContent?.length ?? 1;
   return [
     ...stage.querySelectorAll<HTMLElement | SVGElement>("[data-motion]"),
   ].map((element, index) => {
@@ -190,13 +204,16 @@ export const createDemoAnimations = (
     if (entry.id === "word-reveal") {
       stagger = index * 230;
     }
-    const animation = element.animate(getFrames(entry.id, index), {
-      delay: 160 + stagger,
-      duration: entry.duration,
-      easing: getEasing(entry.id, index),
-      endDelay: 240,
-      fill: "both",
-    });
+    const animation = element.animate(
+      getFrames(entry.id, index, characterCount),
+      {
+        delay: 160 + stagger,
+        duration: entry.duration,
+        easing: getEasing(entry.id, index, characterCount),
+        endDelay: 240,
+        fill: "both",
+      }
+    );
     animation.pause();
     return animation;
   });

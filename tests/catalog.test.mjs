@@ -1,7 +1,21 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { animations, categories, filterAnimations } from "../lib/animations.ts";
+import { createTranslator } from "next-intl";
+import englishMessages from "../messages/en.json" with { type: "json" };
+import {
+  categories,
+  filterAnimations,
+  getAnimationEntries,
+} from "../lib/animations.ts";
 import { claimPlayback, releasePlayback } from "../lib/demo-animation.ts";
+
+const animations = getAnimationEntries(
+  createTranslator({
+    locale: "en",
+    messages: englishMessages,
+    namespace: "Animations",
+  })
+);
 
 const expectedAnimations = 24;
 const expectedCategorySize = 6;

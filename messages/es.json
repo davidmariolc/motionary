@@ -1,0 +1,343 @@
+{
+  "Metadata": {
+    "title": "Motionary — Un diccionario visual del movimiento",
+    "description": "Un diccionario visual del movimiento. Explora animaciones interactivas, aprende sus nombres y copia prompts listos para tu próxima idea."
+  },
+  "Shell": {
+    "skip": "Saltar al contenido",
+    "home": "Inicio de Motionary",
+    "navigation": "Navegación principal",
+    "library": "Biblioteca",
+    "how": "Cómo funciona",
+    "note": "Una pequeña biblioteca de grandes ideas",
+    "tagline": "Un lenguaje compartido para todo lo que se mueve.",
+    "made": "Hecho para mentes curiosas.",
+    "studies": "{count} estudios. Un punto de partida para tu próxima idea.",
+    "language": "Idioma",
+    "switchLanguage": "{current}. Cambiar a {language}"
+  },
+  "Home": {
+    "heading": "Un diccionario<br></br> visual del<br></br> <accent>movimiento.</accent>",
+    "description": "Encuentra las palabras para el movimiento que imaginas. Prueba {count} estudios interactivos, aprende sus nombres y llévate un prompt.",
+    "browse": "Explorar la biblioteca",
+    "categories": "{count} categorías. Listas para probar.",
+    "inside": "Dentro de la biblioteca",
+    "study": "Estudio / {number}",
+    "howHeading": "Tu próximo movimiento,<br></br>en tres pasos.",
+    "find": "Encuentra tu movimiento",
+    "findDescription": "Explora la colección o busca lo que tienes en mente.",
+    "preview": "Prueba la vista previa",
+    "previewDescription": "Reproduce un efecto, baja la velocidad y descubre cómo funciona.",
+    "copy": "Copia el prompt",
+    "copyDescription": "Copia un prompt listo para usar y dale tu toque."
+  },
+  "Catalog": {
+    "title": "La biblioteca de movimiento",
+    "note": "Elige un movimiento. Reprodúcelo. Hazlo tuyo.",
+    "search": "Buscar una animación",
+    "placeholder": "Busca un movimiento, una sensación o una palabra…",
+    "clear": "Borrar búsqueda",
+    "shortcut": "Pulsa <key>/</key> para buscar",
+    "filter": "Filtrar por categoría",
+    "all": "Todos los movimientos",
+    "results": "Mostrando <strong>{count}</strong> {count, plural, one {animación} other {animaciones}}",
+    "inCategory": " en {category}",
+    "forQuery": " para “{query}”",
+    "reset": "Restablecer filtros",
+    "interactive": "Interactivo, a tu ritmo",
+    "empty": "No se encontraron animaciones",
+    "otherMatches": "{count, plural, one {# animación coincide} other {# animaciones coinciden}} con tu búsqueda en otras categorías.",
+    "tryAgain": "Prueba otra palabra o explora toda la colección.",
+    "searchAll": "Buscar en todas las categorías",
+    "clearFilters": "Borrar filtros",
+    "view": "Ver animación"
+  },
+  "Detail": {
+    "back": "Volver a la biblioteca",
+    "playback": "Un movimiento a la vez. Reprodúcelo a tu ritmo.",
+    "what": "Qué hace",
+    "when": "Cuándo usarlo",
+    "duration": "DURACIÓN BASE",
+    "category": "CATEGORÍA",
+    "more": "Más en {category}",
+    "viewCategory": "Ver categoría",
+    "notFound": "Animación no encontrada"
+  },
+  "Prompt": {
+    "title": "Un prompt para hacerlo tuyo.",
+    "ready": "Listo para tu próximo proyecto",
+    "hint": "Cópialo. Ajústalo. Hazlo tuyo.",
+    "copied": "¡Copiado!",
+    "copy": "Copiar prompt",
+    "success": "¡Copiado! El prompt está en el portapapeles.",
+    "failure": "No se pudo copiar. Selecciona el prompt de arriba y cópialo manualmente."
+  },
+  "Player": {
+    "finished": "Finalizado — vuelve a reproducir",
+    "idle": "Pulsa reproducir para explorar",
+    "paused": "En pausa",
+    "playing": "Reproduciendo",
+    "play": "Reproducir",
+    "pause": "Pausar",
+    "replay": "Repetir",
+    "resume": "Continuar",
+    "action": "{action} {name}",
+    "live": "Vista previa en vivo",
+    "study": "Estudio de movimiento",
+    "restartLabel": "Reiniciar {name} desde el principio",
+    "restart": "Reiniciar",
+    "speed": "Velocidad",
+    "playbackSpeed": "Velocidad de reproducción"
+  },
+  "Visual": {
+    "nextIdea": "TU PRÓXIMA IDEA",
+    "typeLine": "Dale vida.",
+    "everyDay": "UN POCO MÁS CADA DÍA.",
+    "wordOne": "Las",
+    "wordTwo": "ideas",
+    "wordThree": "cobran",
+    "wordFour": "vida.",
+    "ideas": "IDEAS EN MOVIMIENTO",
+    "makeMove": "DALE VIDA A UNA IDEA",
+    "highlightLead": "Algunas ideas merecen",
+    "highlightPhrase": "una segunda mirada.",
+    "makeIt": "HAZLO",
+    "simple": "simple.",
+    "moving": "vivo.",
+    "look": "MIRA",
+    "closer": "DE CERCA.",
+    "before": "Antes",
+    "after": "Después",
+    "bigPicture": "UNA GRAN PERSPECTIVA",
+    "million": "8 millones",
+    "counting": "DE IDEAS Y CONTANDO.",
+    "progress": "UNA OBRA EN PROGRESO",
+    "morph": "MISMA FORMA. NUEVAS POSIBILIDADES.",
+    "linear": "lineal"
+  },
+  "Loading": {
+    "label": "Cargando animación",
+    "study": "ESTUDIO DE MOVIMIENTO",
+    "title": "Solo un momento",
+    "description": "Preparando la próxima idea.",
+    "status": "CARGANDO ANIMACIÓN…"
+  },
+  "NotFound": {
+    "eyebrow": "404 / FUERA DE CUADRO",
+    "title": "Este movimiento se nos escapó.",
+    "description": "Esa animación no está en la colección. Hay muchas más por explorar.",
+    "back": "Volver a la biblioteca"
+  },
+  "Categories": {
+    "entrances": {
+      "name": "Entradas",
+      "short": "Entrada"
+    },
+    "rhythm": {
+      "name": "Ritmo",
+      "short": "Ritmo"
+    },
+    "text-numbers": {
+      "name": "Texto y números",
+      "short": "Texto y números"
+    },
+    "shapes-transitions": {
+      "name": "Formas y transiciones",
+      "short": "Forma y transición"
+    }
+  },
+  "Animations": {
+    "fade-in": {
+      "name": "Aparición gradual",
+      "description": "Una entrada discreta. De invisible a presente.",
+      "explanation": "Un elemento se vuelve visible de forma gradual, pasando de transparente a opaco. Su posición no cambia, dejando que el contenido hable por sí mismo.",
+      "usage": "Presenta imágenes, contenido secundario o un cambio de estado sutil sin desviar la atención de la página.",
+      "synonyms": "aparecer opacidad disolver desvanecer Fade in appear opacity dissolve surgir",
+      "prompt": "Muestra el elemento con un fade-in: anima su opacidad de 0 a 1 durante 400 ms con una curva ease-out. Mantén su posición y tamaño sin cambios."
+    },
+    "slide-in": {
+      "name": "Entrada deslizante",
+      "description": "Un pequeño movimiento en la dirección correcta.",
+      "explanation": "Un elemento recorre una distancia corta hasta su posición final mientras aparece. La dirección da a la entrada una sensación de origen.",
+      "usage": "Presenta un panel, una sección nueva o contenido que entra desde el borde de una composición.",
+      "synonyms": "mover trasladar entrada deslizar deslizamiento Slide in move translate entrance sliding deslizar",
+      "prompt": "Muestra el elemento deslizándolo desde abajo: anima translateY de 64 px a 0 y la opacidad de 0 a 1 durante 700 ms con ease-out. Mantén fijo el resto de la composición."
+    },
+    "pop-in": {
+      "name": "Entrada con rebote",
+      "description": "Empieza pequeño. Llega con un ligero rebote.",
+      "explanation": "Un elemento crece más allá de su tamaño final y luego se estabiliza. Ese pequeño exceso hace que la entrada se sienta física y juguetona.",
+      "usage": "Destaca una insignia, un elemento nuevo o una confirmación positiva ocasional.",
+      "synonyms": "escala aparecer salto rebotar Pop in pop scale appear jump salto",
+      "prompt": "Haz que el elemento aparezca con un pequeño rebote durante 700 ms: empieza al 70% de escala y con opacidad cero, crece al 112% y termina al 100%. Mantén fijo su centro y usa un sobrepaso suave."
+    },
+    "scale-up": {
+      "name": "Aumento de escala",
+      "description": "Crece hasta su lugar, sin rebotar.",
+      "explanation": "Un elemento crece suavemente desde un tamaño menor hasta sus dimensiones finales. A diferencia de una entrada con rebote, no sobrepasa su tamaño final.",
+      "usage": "Muestra una imagen, un diálogo o un elemento principal con una sensación sencilla de profundidad.",
+      "synonyms": "crecer ampliar zoom entrada Scale up grow enlarge zoom entrance crescer",
+      "prompt": "Muestra el elemento aumentando su escala del 55% al 100% y su opacidad de 0 a 1 durante 700 ms con ease-out. No sobrepases el tamaño final ni cambies las dimensiones de la composición."
+    },
+    "blur-in": {
+      "name": "Entrada desde desenfoque",
+      "description": "De borroso a perfectamente nítido.",
+      "explanation": "Un elemento desenfocado se vuelve nítido y visible. La aparición cambia el enfoque en lugar de desplazarse por la pantalla.",
+      "usage": "Da una entrada cinematográfica a un título, una fotografía o una pieza editorial. Úsalo con moderación: el desenfoque requiere repintado.",
+      "synonyms": "enfoque nitidez desenfoque borroso revelar Blur in focus sharp defocus blur reveal borrado",
+      "prompt": "Muestra el elemento durante 900 ms animando filter blur de 18 px a 0 y la opacidad de 0 a 1 con ease-out. Mantén fijos la posición y el tamaño."
+    },
+    "stagger": {
+      "name": "Entrada escalonada",
+      "description": "Uno por uno. Mejor juntos.",
+      "explanation": "Un grupo comparte la misma entrada, pero cada elemento empieza un poco después del anterior. La secuencia convierte elementos separados en un ritmo fácil de seguir.",
+      "usage": "Presenta tarjetas, listas o pequeños grupos de elementos relacionados en un orden deliberado.",
+      "synonyms": "cascada secuencia retraso lista escalonado Stagger cascade sequence delay list cascata",
+      "prompt": "Muestra cuatro elementos de forma escalonada: anima la opacidad de 0 a 1 y translateY de 30 px a 0 durante 500 ms con ease-out. Inicia cada elemento 130 ms después del anterior."
+    },
+    "overshoot": {
+      "name": "Sobrepaso",
+      "description": "Ve un poco más allá. Luego vuelve a tu lugar.",
+      "explanation": "Un elemento supera su destino y vuelve suavemente. Ese recorrido extra sugiere inercia en lugar de una parada abrupta.",
+      "usage": "Da una pequeña sensación de peso y personalidad a una entrada o un cambio de posición importante.",
+      "synonyms": "pasar retorno inercia estabilizar sobrepasar Overshoot past return momentum settle passa",
+      "prompt": "Mueve el elemento horizontalmente de -90 px a 0 durante 1000 ms. Sobrepasa el destino 22 px y luego vuelve a 0 con un único sobrepaso suave."
+    },
+    "bounce": {
+      "name": "Rebote",
+      "description": "Un aterrizaje con un poco de vida.",
+      "explanation": "Un elemento cae hacia una superficie y rebota con saltos cada vez menores, como si la gravedad lo llevara al reposo.",
+      "usage": "Ilustra un aterrizaje o añade una respuesta juguetona ocasional a una acción completada.",
+      "synonyms": "salto gravedad pelota rebotar Bounce hop gravity ball rebound quicar",
+      "prompt": "Anima un cuadrado que cae hacia una línea base durante 1300 ms. Haz que rebote tres veces con alturas decrecientes y luego descanse sobre la línea. Mantén fija su posición horizontal."
+    },
+    "spring": {
+      "name": "Resorte",
+      "description": "Estira, suelta y encuentra el equilibrio.",
+      "explanation": "Un elemento desplazado oscila alrededor de su posición de reposo y pierde energía con cada oscilación. Se parece a un objeto suspendido de un resorte.",
+      "usage": "Demuestra la estabilización física y los movimientos que deben transmitir peso.",
+      "synonyms": "fisica física oscilación amortiguación muelle Spring physics oscillation damping mola",
+      "prompt": "Anima un cuadrado suspendido con un resorte amortiguado durante 1500 ms. Desplázalo 60 px hacia abajo y luego hazlo oscilar alrededor de su posición de reposo con amplitud decreciente hasta detenerse."
+    },
+    "ease-in-out": {
+      "name": "Aceleración y frenado",
+      "description": "Empieza despacio. Toma ritmo. Baja la velocidad.",
+      "explanation": "El movimiento acelera gradualmente y desacelera antes de detenerse. Una comparación lineal permite apreciar la diferencia de velocidad.",
+      "usage": "Mueve un elemento entre dos posiciones visibles cuando tanto la salida como la llegada deben sentirse deliberadas.",
+      "synonyms": "acelerar desacelerar suave curva lineal Ease in-out accelerate decelerate smooth easing linear",
+      "prompt": "Mueve dos marcadores horizontalmente por pistas iguales durante 1400 ms. Usa linear en el primero y ease-in-out en el segundo para comparar su aceleración y desaceleración."
+    },
+    "elastic": {
+      "name": "Elástico",
+      "description": "La energía de una banda elástica.",
+      "explanation": "Un elemento se lanza hacia su destino y oscila a su alrededor con rebotes elásticos. Se siente más pronunciado y flexible que un único sobrepaso.",
+      "usage": "Explica el movimiento elástico o añade un acento expresivo ocasional a una experiencia lúdica.",
+      "synonyms": "banda goma estirar elástico elastico Elastic rubber band stretch snap elastico",
+      "prompt": "Mueve el cuadrado de -90 px a 0 durante 1600 ms: sobrepasa el destino 38 px, rebota 24 px hacia atrás y luego oscila con amplitud decreciente hasta descansar en 0."
+    },
+    "pulse": {
+      "name": "Pulso",
+      "description": "Un pequeño latido que dice: mira aquí.",
+      "explanation": "Un elemento se expande y vuelve a su tamaño original. Un anillo exterior que se desvanece refuerza el pulso sin cambiar la composición.",
+      "usage": "Señala brevemente una ubicación, una acción disponible o un cambio de estado. Evita los bucles interminables que reclaman atención.",
+      "synonyms": "latido atención anillo ubicación pulsar Pulse beat attention ring location pulsar",
+      "prompt": "Crea un único pulso de 1100 ms: aumenta la escala del marcador central de 1 a 1.18 y vuelve a 1. Expande un anillo exterior de 1 a 2.2 mientras lo desvaneces. No lo repitas automáticamente."
+    },
+    "typewriter": {
+      "name": "Máquina de escribir",
+      "description": "Una idea, un carácter a la vez.",
+      "explanation": "El texto aparece en pasos del tamaño de un carácter, acompañado de un cursor. Las letras aparecen en orden de lectura en lugar de desvanecerse juntas.",
+      "usage": "Presenta un comando corto, una línea narrativa ocasional o un mensaje inspirado en una terminal.",
+      "synonyms": "escribir carácter cursor maquina máquina Typewriter typing character cursor machine maquina",
+      "prompt": "Revela «Dale vida.» carácter por carácter durante 1500 ms usando 10 pasos discretos. Mantén un cursor al final del texto visible y la posición de la línea fija."
+    },
+    "count-up": {
+      "name": "Conteo ascendente",
+      "description": "Números que transmiten progreso.",
+      "explanation": "Un valor numérico aumenta de cero hasta una meta. La unidad permanece fija para que se pueda seguir el valor cambiante.",
+      "usage": "Presenta una estadística importante o visualiza el progreso hacia un número fijo.",
+      "synonyms": "contador contar número estadística Count up counter counting number statistic anos",
+      "prompt": "Anima un contador numérico de 0 a 100 durante 1600 ms con ease-out. Mantén fijo el signo de porcentaje y usa números tabulares para evitar saltos en la composición."
+    },
+    "word-reveal": {
+      "name": "Aparición por palabras",
+      "description": "Dale su momento a cada palabra.",
+      "explanation": "Una frase aparece palabra por palabra, combinando un pequeño desplazamiento vertical con un fundido. El orden sigue la dirección natural de lectura.",
+      "usage": "Revela un título breve o destaca el ritmo de una frase editorial concisa.",
+      "synonyms": "texto palabras secuencia revelar Word reveal split text words sequential palavra",
+      "prompt": "Revela «Las ideas cobran vida.» palabra por palabra. Anima cada palabra de translateY(18 px) y opacidad 0 a su posición final y opacidad 1 durante 450 ms, con 230 ms entre el inicio de cada palabra."
+    },
+    "ticker": {
+      "name": "Texto deslizante",
+      "description": "Mantén las palabras en movimiento.",
+      "explanation": "Una franja continua de texto se desplaza horizontalmente por una ventana recortada. La velocidad lineal mantiene un movimiento constante y legible.",
+      "usage": "Muestra un anuncio breve o una franja editorial con reproducción opcional.",
+      "synonyms": "marquesina desplazar deslizar texto continuo Ticker marquee scrolling sliding text rolling letreiro",
+      "prompt": "Mueve una franja horizontal con «IDEAS EN MOVIMIENTO — DALE VIDA A UNA IDEA —» de derecha a izquierda a velocidad constante durante 2600 ms, recortada por su contenedor. Reproduce una sola pasada y ofrece controles de pausa."
+    },
+    "highlight": {
+      "name": "Resaltado",
+      "description": "Un subrayado en movimiento para tu idea.",
+      "explanation": "Un resaltado de color recorre el fondo de una frase y dirige la atención hacia palabras que permanecen quietas y legibles.",
+      "usage": "Destaca una frase clave o una conclusión importante sin mover el texto.",
+      "synonyms": "marcador énfasis subrayar resaltar Highlight marker emphasis underline grifar",
+      "prompt": "Extiende un resaltado verde lima de izquierda a derecha detrás de «una segunda mirada» durante 1000 ms con ease-in-out. Mantén el texto fijo, visible y legible durante todo el efecto."
+    },
+    "text-swap": {
+      "name": "Cambio de texto",
+      "description": "La misma frase. Una nueva posibilidad.",
+      "explanation": "Una palabra sale de una ventana de texto recortada mientras otra entra. El resto de la frase permanece fijo.",
+      "usage": "Muestra alternativas en un título breve o cambia entre cualidades de un producto.",
+      "synonyms": "rotar palabra cambiar reemplazar Text swap rotating word change replace trocar",
+      "prompt": "Bajo la etiqueta fija «HAZLO», desliza «simple.» hacia arriba y fuera de una ventana recortada mientras «vivo.» entra desde abajo durante 1000 ms con ease-in-out. Conserva la altura del contenedor de texto."
+    },
+    "draw-on": {
+      "name": "Trazado progresivo",
+      "description": "Una línea que encuentra su forma.",
+      "explanation": "Un contorno se dibuja progresivamente a lo largo de una trayectoria. Animar el trazo visible hace que parezca dibujado con un lápiz.",
+      "usage": "Revela una ilustración, una ruta, un icono o un detalle sencillo dibujado a mano.",
+      "synonyms": "svg trazo trayectoria dibujar dibujo Draw on svg stroke path trace drawing traco",
+      "prompt": "Dibuja una trayectoria SVG de principio a fin durante 1600 ms con ease-in-out animando stroke-dashoffset desde la longitud total del trazo hasta 0. Usa un trazo verde lima y ningún relleno."
+    },
+    "mask-reveal": {
+      "name": "Revelado con máscara",
+      "description": "Descubre lo que siempre estuvo ahí.",
+      "explanation": "Una máscara de recorte se expande para descubrir un elemento. El contenido permanece quieto mientras crece su área visible.",
+      "usage": "Revela una imagen, una composición geométrica o un título con una apertura radial.",
+      "synonyms": "recorte círculo descubrir máscara mascara Mask reveal clip clipping circle uncover mascara",
+      "prompt": "Revela la composición con un clip-path circular que se expanda durante 1100 ms con ease-out. Aumenta el círculo de 0% a 75% en el centro sin escalar el contenido que hay debajo."
+    },
+    "wipe": {
+      "name": "Barrido",
+      "description": "Una escena da paso a otra.",
+      "explanation": "Una superficie nueva recorre la anterior y la reemplaza con un borde limpio en movimiento.",
+      "usage": "Muestra un antes y un después o cambia entre dos escenas diferentes.",
+      "synonyms": "cortina transición antes después Wipe curtain transition before after cortina",
+      "prompt": "Pasa de un panel oscuro con la etiqueta «Antes» a un panel verde lima con «Después» mediante un barrido de izquierda a derecha durante 1200 ms con ease-in-out. Mantén ambas etiquetas fijas en sus paneles."
+    },
+    "punch-zoom": {
+      "name": "Zoom de impacto",
+      "description": "Una mirada más cercana. Un instante de impacto.",
+      "explanation": "Toda la composición se acerca rápidamente y vuelve a su estado inicial. Este breve movimiento de cámara hace que el contenido principal se sienta más inmediato.",
+      "usage": "Añade impacto ocasional a una revelación, una cifra clave o un momento narrativo.",
+      "synonyms": "cámara impacto zoom acercar Punch zoom camera impact zoom punch snap",
+      "prompt": "Crea un zoom de impacto en una composición enmarcada de «8 millones de ideas» durante 800 ms: aumenta rápidamente la escala de 1 a 1.3 y luego vuelve a 1. Centra el origen de la transformación y recorta la escena a su ventana."
+    },
+    "bar-grow": {
+      "name": "Crecimiento de barra",
+      "description": "De un punto de partida a algo más.",
+      "explanation": "Una barra se extiende desde su borde anclado hasta su longitud final. Usar escala evita mover el resto de la composición.",
+      "usage": "Presenta un indicador de progreso o muestra el tamaño relativo de un valor sencillo.",
+      "synonyms": "progreso relleno gráfico carga barra Bar grow progress fill chart loading barra",
+      "prompt": "Haz crecer una barra horizontal verde lima de scaleX(0) a scaleX(1) durante 1200 ms con ease-out y transform-origin en el borde izquierdo. Mantén fijos el contenedor y la etiqueta."
+    },
+    "morph": {
+      "name": "Transformación de forma",
+      "description": "Una forma. Una posibilidad diferente.",
+      "explanation": "Un cuadrado se redondea suavemente hasta convertirse en un círculo, conservando su centro y la continuidad visual.",
+      "usage": "Explica una transformación o conecta estados visuales relacionados mediante una forma compartida.",
+      "synonyms": "forma transformación círculo cuadrado radio borde Morph shape transformation circle square border radius forma",
+      "prompt": "Transforma un cuadrado verde lima en un círculo durante 1400 ms con ease-in-out animando border-radius del 8% al 50% y una sutil rotación de un cuarto de vuelta. Conserva su centro y tamaño."
+    }
+  }
+}

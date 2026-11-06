@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import {
   claimPlayback,
@@ -9,13 +10,6 @@ import { DemoVisual } from "@/components/demo-visual";
 import { Icon } from "@/components/icon";
 import type { AnimationEntry } from "@/lib/animations";
 
-const playbackMessages = {
-  finished: "Finished — play again",
-  idle: "Press play to explore",
-  paused: "Paused",
-  playing: "Playing",
-} as const;
-
 export const DemoPlayer = ({
   entry,
   large = false,
@@ -23,6 +17,7 @@ export const DemoPlayer = ({
   readonly entry: AnimationEntry;
   readonly large?: boolean;
 }) => {
+  const t = useTranslations("Player");
   type PlaybackState = "idle" | "playing" | "paused" | "finished";
   const stage = useRef<HTMLElement>(null);
   const group = useRef<Animation[]>([]);
@@ -128,17 +123,14 @@ export const DemoPlayer = ({
     }
   };
   const isPlaying = state === "playing";
-  const stageStatus =
-    state === "idle"
-      ? playbackMessages.idle
-      : `${playbackMessages[state]} · ${speed}×`;
-  let label = "Play";
+  const stageStatus = state === "idle" ? t("idle") : `${t(state)} · ${speed}×`;
+  let label = t("play");
   if (isPlaying) {
-    label = "Pause";
+    label = t("pause");
   } else if (state === "finished") {
-    label = "Replay";
+    label = t("replay");
   } else if (state === "paused") {
-    label = "Resume";
+    label = t("resume");
   }
   let icon: "pause" | "replay" | "play" = "play";
   if (isPlaying) {
@@ -160,7 +152,7 @@ export const DemoPlayer = ({
           {String(entry.number).padStart(2, "0")}
         </span>
         <span className="stage-marker mono" aria-hidden="true">
-          {large ? "Live preview" : "Motion study"}
+          {t(large ? "live" : "study")}
         </span>
         <div className="demo-art" aria-hidden="true">
           <DemoVisual id={entry.id} />
@@ -178,7 +170,7 @@ export const DemoPlayer = ({
           onClick={() => {
             (isPlaying ? pause : play)();
           }}
-          aria-label={`${label} ${entry.name}`}
+          aria-label={t("action", { action: label, name: entry.name })}
           aria-controls={stageId}
         >
           <Icon name={icon} size={large ? 18 : 14} />
@@ -190,16 +182,16 @@ export const DemoPlayer = ({
               type="button"
               className="button replay-button"
               onClick={() => play(true)}
-              aria-label={`Restart ${entry.name} from the beginning`}
+              aria-label={t("restartLabel", { name: entry.name })}
             >
               <Icon name="replay" />
-              <span>Restart</span>
+              <span>{t("restart")}</span>
             </button>
             <div className="speed-control">
-              <label htmlFor={speedId}>Speed</label>
+              <label htmlFor={speedId}>{t("speed")}</label>
               <select
                 id={speedId}
-                aria-label="Playback speed"
+                aria-label={t("playbackSpeed")}
                 value={speed}
                 onChange={(event) => changeSpeed(Number(event.target.value))}
               >

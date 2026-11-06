@@ -147,7 +147,38 @@ svg {
   display: flex;
   min-height: 88px;
   align-items: center;
-  gap: 64px;
+  gap: 32px;
+}
+
+.language-switcher {
+  display: inline-flex;
+  min-width: 128px;
+  min-height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border: 1px solid #c8cbd1;
+  border-radius: 8px;
+  margin: 0 0 0 auto;
+  background: var(--paper);
+  color: var(--foreground);
+  font-size: 16px;
+  gap: 10px;
+}
+
+.language-switcher svg {
+  color: var(--muted);
+}
+
+.language-switcher:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.language-switcher:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 .brand {
@@ -2349,6 +2380,30 @@ kbd {
 
   .related-heading h2 {
     font-size: 30px;
+  }
+}
+
+@media (width < 480px) {
+  .header-inner {
+    display: grid;
+    gap: 0 16px;
+    grid-template-areas:
+      "brand language"
+      "navigation navigation";
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-block: 12px;
+  }
+
+  .header-inner > .brand {
+    grid-area: brand;
+  }
+
+  .header-inner nav {
+    grid-area: navigation;
+  }
+
+  .language-switcher {
+    grid-area: language;
   }
 }
 

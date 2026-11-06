@@ -1,12 +1,19 @@
+import { useTranslations } from "next-intl";
+
 const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
+  const t = useTranslations("Visual");
   switch (id) {
     case "typewriter": {
       return (
         <div className="type-composition">
-          <span className="terminal-label">YOUR NEXT IDEA</span>
+          <span className="terminal-label">{t("nextIdea")}</span>
           <div className="type-window">
-            <span data-motion className="type-line">
-              Make it move.
+            <span
+              data-motion
+              className="type-line"
+              style={{ width: `${t("typeLine").length}ch` }}
+            >
+              {t("typeLine")}
             </span>
             <span data-motion className="type-caret" />
           </div>
@@ -20,20 +27,22 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
             100
           </span>
           <span className="counter-unit">%</span>
-          <span className="counter-label">A LITTLE MORE EVERY DAY.</span>
+          <span className="counter-label">{t("everyDay")}</span>
         </div>
       );
     }
     case "word-reveal": {
       return (
         <div className="word-composition">
-          {["Good", "things", "take", "motion."].map((word) => {
-            return (
-              <span key={word} data-motion>
-                {word}
-              </span>
-            );
-          })}
+          {[t("wordOne"), t("wordTwo"), t("wordThree"), t("wordFour")].map(
+            (word) => {
+              return (
+                <span key={word} data-motion>
+                  {word}
+                </span>
+              );
+            }
+          )}
         </div>
       );
     }
@@ -41,8 +50,8 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
       return (
         <div className="ticker-composition">
           <div data-motion>
-            IDEAS IN MOTION <span>✳</span> MAKE SOMETHING MOVE <span>✳</span>{" "}
-            IDEAS IN MOTION
+            {t("ideas")} <span>✳</span> {t("makeMove")} <span>✳</span>{" "}
+            {t("ideas")}
           </div>
         </div>
       );
@@ -50,11 +59,11 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
     case "highlight": {
       return (
         <div className="highlight-composition">
-          Some ideas are
+          {t("highlightLead")}
           <br />
           <span className="highlight-phrase">
             <i data-motion />
-            <span>worth a second look.</span>
+            <span>{t("highlightPhrase")}</span>
           </span>
         </div>
       );
@@ -62,11 +71,11 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
     case "text-swap": {
       return (
         <div className="swap-composition">
-          <span className="terminal-label">MAKE IT</span>
+          <span className="terminal-label">{t("makeIt")}</span>
           <div className="swap-window">
             <div data-motion className="swap-words">
-              <span>simple.</span>
-              <span>moving.</span>
+              <span>{t("simple")}</span>
+              <span>{t("moving")}</span>
             </div>
           </div>
         </div>
@@ -99,9 +108,9 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
           <div className="mask-circle" />
           <div className="mask-grid" />
           <span>
-            LOOK
+            {t("look")}
             <br />
-            CLOSER.
+            {t("closer")}
           </span>
         </div>
       );
@@ -109,9 +118,9 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
     case "wipe": {
       return (
         <div className="wipe-composition">
-          <span>Before</span>
+          <span>{t("before")}</span>
           <div data-motion className="wipe-after">
-            <span>After</span>
+            <span>{t("after")}</span>
           </div>
         </div>
       );
@@ -120,9 +129,9 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
       return (
         <div className="punch-viewport">
           <div data-motion className="punch-composition">
-            <span className="punch-caption">THE BIG PICTURE</span>
-            <strong>8 million</strong>
-            <span>IDEAS AND COUNTING.</span>
+            <span className="punch-caption">{t("bigPicture")}</span>
+            <strong>{t("million")}</strong>
+            <span>{t("counting")}</span>
             <i />
           </div>
         </div>
@@ -132,7 +141,7 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
       return (
         <div className="bar-composition">
           <div className="bar-label">
-            <span>A WORK IN PROGRESS</span>
+            <span>{t("progress")}</span>
             <span>100%</span>
           </div>
           <div className="bar-track">
@@ -153,7 +162,7 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
         <div className="morph-composition">
           <div className="morph-outline" />
           <div data-motion className="motion-square" />
-          <span>SAME SHAPE. NEW POSSIBILITIES.</span>
+          <span>{t("morph")}</span>
         </div>
       );
     }
@@ -163,6 +172,7 @@ const TextAndShapeVisual = ({ id }: { readonly id: string }) => {
   }
 };
 export const DemoVisual = ({ id }: { readonly id: string }) => {
+  const t = useTranslations("Visual");
   switch (id) {
     case "fade-in": {
       return (
@@ -266,7 +276,7 @@ export const DemoVisual = ({ id }: { readonly id: string }) => {
       return (
         <div className="ease-composition">
           <div>
-            <span>linear</span>
+            <span>{t("linear")}</span>
             <div className="ease-track">
               <i data-motion />
             </div>

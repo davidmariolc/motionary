@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { DemoPlayer } from "@/components/demo-player";
 import { Icon } from "@/components/icon";
 import { getCategory } from "@/lib/animations";
@@ -11,6 +12,8 @@ export const AnimationCard = ({
 }: {
   readonly entry: AnimationEntry;
 }) => {
+  const t = useTranslations("Catalog");
+  const categoryText = useTranslations("Categories");
   const category = getCategory(entry.category);
   return (
     <article className="animation-card" data-category={entry.category}>
@@ -24,7 +27,7 @@ export const AnimationCard = ({
           </h3>
           <span className="category-label">
             <Icon name={category.icon} size={12} />
-            {category.short}
+            {categoryText(`${category.id}.short`)}
           </span>
         </div>
         <p>{entry.description}</p>
@@ -33,7 +36,7 @@ export const AnimationCard = ({
           href={`/animations/${entry.id}`}
           onClick={rememberCatalog}
         >
-          <span>View animation</span>
+          <span>{t("view")}</span>
           <Icon name="diagonal" size={16} />
         </Link>
       </div>

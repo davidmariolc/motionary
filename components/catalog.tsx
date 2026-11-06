@@ -1,10 +1,17 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import { AnimationCard } from "@/components/animation-card";
 import { Icon } from "@/components/icon";
 import { categories, filterAnimations } from "@/lib/animations";
 import { restoreCatalog } from "@/lib/catalog-state";
+import type { ReactNode } from "react";
 import type { AnimationEntry } from "@/lib/animations";
+
+const richText = {
+  key: (chunks: ReactNode) => <kbd>{chunks}</kbd>,
+  strong: (chunks: ReactNode) => <strong>{chunks}</strong>,
+};
 
 const filtersEvent = "motionary:filters";
 const subscribe = (listener: () => void) => {
@@ -30,7 +37,7 @@ const updateFilters = (query: string, category: string) => {
   window.history.replaceState(
     window.history.state,
     "",
-    `/${suffix}${window.location.hash}`
+    `${window.location.pathname}${suffix}${window.location.hash}`
   );
   window.dispatchEvent(new Event(filtersEvent));
 };
@@ -39,6 +46,8 @@ export const Catalog = ({
 }: {
   readonly entries: AnimationEntry[];
 }) => {
+  const t = useTranslations("Catalog");
+  const categoryText = useTranslations("Categories");
   const search = useSyncExternalStore(
     subscribe,
     getSnapshot,
@@ -54,8 +63,6 @@ export const Catalog = ({
   const allResults = filterAnimations(entries, query, "all");
   const hasFilters = query.length > 0 || category !== "all";
   const canSearchAll = category !== "all" && allResults.length > 0;
-  const matchesLabel =
-    allResults.length === 1 ? "animation matches" : "animations match";
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => {
     restoreCatalog();
@@ -83,28 +90,26 @@ export const Catalog = ({
     >
       <div className="collection-heading">
         <h2 id="collection-title">
-          The motion library{" "}
+          {t("title")}{" "}
           <span className="collection-total mono">
             {String(entries.length).padStart(2, "0")}
           </span>
         </h2>
-        <span className="collection-note">
-          Pick a motion. Press play. Make it yours.
-        </span>
+        <span className="collection-note">{t("note")}</span>
       </div>
       <label className="search-label sr-only" htmlFor="animation-search">
-        Find an animation
+        {t("search")}
       </label>
       <div className="search-field">
         <Icon name="search" size={21} />
         <input
           id="animation-search"
-          aria-label="Find an animation"
+          aria-label={t("search")}
           aria-controls="animation-results"
           ref={input}
           type="search"
           value={query}
-          placeholder="Search a motion, a feeling, or a word…"
+          placeholder={t("placeholder")}
           onChange={(event) => updateFilters(event.target.value, category)}
           onKeyDown={(event) => {
             if (event.key === "Escape") {
@@ -117,7 +122,7 @@ export const Catalog = ({
           <button
             type="button"
             className="icon-button"
-            aria-label="Clear search"
+            aria-label={t("clear")}
             onClick={() => {
               updateFilters("", category);
               input.current?.focus();
@@ -127,12 +132,12 @@ export const Catalog = ({
           </button>
         ) : (
           <span className="search-shortcut" aria-hidden="true">
-            Press <kbd>/</kbd> to search
+            {t.rich("shortcut", richText)}
           </span>
         )}
       </div>
       <div className="filter-bar">
-        <fieldset className="category-filters" aria-label="Filter by category">
+        <fieldset className="category-filters" aria-label={t("filter")}>
           <button
             type="button"
             className="filter-button"
@@ -141,7 +146,8 @@ export const Catalog = ({
             onClick={() => updateFilters(query, "all")}
           >
             <Icon name="grid" size={15} />
-            All motions<span>{allResults.length}</span>
+            {t("all")}
+            <span>{allResults.length}</span>
           </button>
           {categories.map((item) => {
             return (
@@ -154,7 +160,7 @@ export const Catalog = ({
                 onClick={() => updateFilters(query, item.id)}
               >
                 <Icon name={item.icon} size={15} />
-                {item.name}
+                {categoryText(`${item.id}.name`)}
                 <span>
                   {
                     allResults.filter((entry) => entry.category === item.id)
@@ -168,12 +174,14 @@ export const Catalog = ({
       </div>
       <div className="results-meta">
         <output aria-live="polite" aria-atomic="true">
-          Showing <strong>{results.length}</strong>{" "}
-          {results.length === 1 ? "animation" : "animations"}
+          {t.rich("results", {
+            count: results.length,
+            ...richText,
+          })}
           {category === "all"
             ? ""
-            : ` in ${categories.find((item) => item.id === category)?.name}`}
-          {query ? <> for “{query}”</> : null}
+            : t("inCategory", { category: categoryText(`${category}.name`) })}
+          {query ? t("forQuery", { query }) : ""}
         </output>
         {hasFilters ? (
           <button
@@ -184,11 +192,11 @@ export const Catalog = ({
               input.current?.focus();
             }}
           >
-            <Icon name="close" size={14} /> Reset filters
+            <Icon name="close" size={14} /> {t("reset")}
           </button>
         ) : (
           <span className="mono">
-            <Icon name="play" size={14} /> Interactive, at your own pace
+            <Icon name="play" size={14} /> {t("interactive")}
           </span>
         )}
       </div>
@@ -203,11 +211,11 @@ export const Catalog = ({
         ) : (
           <div className="empty-state">
             <Icon name="search" size={32} />
-            <h3>No animations found</h3>
+            <h3>{t("empty")}</h3>
             <p>
               {canSearchAll
-                ? `${allResults.length} ${matchesLabel} your search in other categories.`
-                : "Try a different word or explore the full collection."}
+                ? t("otherMatches", { count: allResults.length })
+                : t("tryAgain")}
             </p>
             <button
               type="button"
@@ -217,7 +225,7 @@ export const Catalog = ({
                 input.current?.focus();
               }}
             >
-              {canSearchAll ? "Search all categories" : "Clear filters"}
+              {t(canSearchAll ? "searchAll" : "clearFilters")}
               <Icon name="arrow" />
             </button>
           </div>
