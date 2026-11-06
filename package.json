@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "check": "ultracite check",
+    "typecheck": "next typegen && tsc --noEmit",
+    "verify": "pnpm run check && pnpm run typecheck && pnpm test",
+    "ci": "pnpm run verify && pnpm run build",
     "fix": "ultracite fix",
     "test": "node --experimental-strip-types --test tests/*.test.mjs"
   },
