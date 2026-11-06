@@ -16,6 +16,7 @@
   --font-sans: var(--font-display);
   --font-mono: var(--font-metadata);
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @theme inline {
@@ -213,6 +214,63 @@ svg {
 .brand > svg,
 .brand-dot {
   color: var(--accent);
+}
+
+.brand-word {
+  white-space: nowrap;
+}
+
+.brand-intro {
+  position: fixed;
+  z-index: 90;
+  display: none;
+  overflow: hidden;
+  inset: 0;
+}
+
+html:is(
+    [data-brand-intro="pending"],
+    [data-brand-intro="running"],
+    [data-brand-intro="revealing"]
+  )
+  .brand-intro {
+  display: block;
+}
+
+html:is(
+    [data-brand-intro="pending"],
+    [data-brand-intro="running"],
+    [data-brand-intro="revealing"]
+  )
+  .header-inner
+  > .brand {
+  visibility: hidden;
+}
+
+html[data-brand-intro="revealing"] .brand-intro {
+  pointer-events: none;
+}
+
+.intro-backdrop,
+.intro-surface {
+  position: absolute;
+  inset: 0;
+}
+
+.intro-backdrop {
+  background: var(--background);
+}
+
+.intro-surface {
+  background: var(--accent);
+}
+
+.intro-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  visibility: hidden;
 }
 
 .header-inner nav {
@@ -2455,6 +2513,14 @@ kbd {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .brand-intro {
+    display: none !important;
+  }
+
+  .header-inner > .brand {
+    visibility: visible !important;
+  }
+
   *,
   *::before,
   *::after {

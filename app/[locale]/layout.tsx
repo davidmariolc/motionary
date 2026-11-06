@@ -2,8 +2,10 @@ import { Familjen_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { BrandIntro } from "@/components/brand-intro";
 import { SiteFooter, SiteHeader } from "@/components/site-shell";
 import { routing } from "@/i18n/routing";
+import { brandIntroBootstrap } from "@/lib/brand-intro-bootstrap";
 import type { Metadata } from "next";
 import "../globals.css";
 // eslint-disable-next-line unicorn/no-top-level-side-effects -- Next compiles font declarations at build time.
@@ -54,9 +56,15 @@ const RootLayout = async ({ children, params }: LayoutProps<"/[locale]">) => {
       lang={locale}
       data-type="software"
       className={`${displayFont.variable} ${monoFont.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* eslint-disable-next-line react-doctor/nextjs-no-native-script -- This tiny synchronous gate prevents the page flashing before the intro. */}
+        <script id="motionary-brand-intro">{brandIntroBootstrap}</script>
+      </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={clientMessages}>
+          <BrandIntro />
           <a className="skip-link" href="#main-content">
             {t("skip")}
           </a>

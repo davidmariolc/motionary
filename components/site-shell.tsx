@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { BrandArtwork } from "@/components/brand-artwork";
 import { GitHubLink } from "@/components/github-link";
 import { Icon } from "@/components/icon";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -9,21 +10,7 @@ export const Brand = () => {
   const t = useTranslations("Shell");
   return (
     <Link href="/" className="brand" aria-label={t("home")}>
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 28 28"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M3 23V5h5l6 10 6-10h5v18h-5V13l-6 9-6-9v10Z"
-          fill="currentColor"
-        />
-      </svg>
-      <span>
-        motionary<span className="brand-dot">.</span>
-      </span>
+      <BrandArtwork />
     </Link>
   );
 };
