@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { GitHubLink } from "@/components/github-link";
+import { Icon } from "@/components/icon";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { animations } from "@/lib/animations";
 
@@ -34,16 +35,14 @@ export const SiteHeader = () => {
         <Brand />
         <nav aria-label={t("navigation")}>
           <Link href="/#collection">
-            {t("library")}{" "}
+            <span className="nav-label">{t("library")}</span>
             <span className="nav-count mono">{animations.length}</span>
           </Link>
           <Link href="/#how-it-works">
-            {t("how")} <span aria-hidden="true">↗</span>
+            <span className="nav-label">{t("how")}</span>
+            <Icon name="info" size={18} />
           </Link>
         </nav>
-        <span className="header-note mono">
-          <span className="small-dot" /> {t("note")}
-        </span>
         <div className="header-actions">
           <LanguageSwitcher />
           <GitHubLink />
