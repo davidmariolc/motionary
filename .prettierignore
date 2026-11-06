@@ -1,2 +1,6 @@
 # Skills are installed and updated by their own tools.
 .agents/skills/
+
+# Vercel rewrites this configuration before running the build command.
+# GitHub Actions checks the committed file explicitly.
+/vercel.json

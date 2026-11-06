@@ -43,7 +43,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Check formatting and lint
-        run: pnpm run check
+        run: |
+          pnpm exec prettier --check vercel.json --ignore-path .gitignore
+          pnpm run check
 
       - name: Check TypeScript and route types
         run: pnpm run typecheck

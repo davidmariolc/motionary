@@ -26,6 +26,8 @@ If a restricted environment prevents Turbopack from opening its local stylesheet
 
 GitHub Actions runs `.github/workflows/ci.yml` for pull requests targeting `main`, pushes to `main`, merge queue entries, and manual runs. It installs dependencies with `--frozen-lockfile`, caches the pnpm store, and runs every verification step above. New runs cancel older runs for the same ref. Actions are pinned to commit SHAs; Dependabot proposes weekly updates.
 
+Vercel processes `vercel.json` before executing the build command, so `.prettierignore` excludes it from the general formatting check. GitHub Actions separately checks the committed `vercel.json` with Prettier, using `.gitignore` instead.
+
 Continuous deployment uses the existing Vercel Git integration for `davidmariolc/motionary`. Vercel creates previews for branches and deploys `main` to production. `vercel.json` sets the build command to `pnpm run ci`, so previews and production must pass the quality checks and tests before the Next.js build can succeed. A failed check leaves the current production deployment in place. GitHub Actions and Vercel each run the checks independently; the Vercel build does not wait for the GitHub workflow. No Vercel token or GitHub Actions secrets are needed.
 
 These changes take effect once committed and pushed. For merge protection, require the `Quality and build` check on `main` in GitHub branch protection or a ruleset after the workflow has run once. Branch protection is managed in GitHub and is not enabled by these files.
