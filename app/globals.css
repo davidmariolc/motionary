@@ -150,9 +150,17 @@ svg {
   gap: 32px;
 }
 
-.language-switcher {
+.header-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+}
+
+.language-switcher,
+.github-link {
   display: inline-flex;
-  min-width: 128px;
   min-height: 44px;
   flex-shrink: 0;
   align-items: center;
@@ -160,18 +168,29 @@ svg {
   padding: 0 16px;
   border: 1px solid #c8cbd1;
   border-radius: 8px;
-  margin: 0 0 0 auto;
+  margin: 0;
   background: var(--paper);
   color: var(--foreground);
   font-size: 16px;
   gap: 10px;
 }
 
-.language-switcher svg {
+.language-switcher {
+  min-width: 128px;
+}
+
+.github-link {
+  min-width: 76px;
+  font-variant-numeric: tabular-nums;
+}
+
+.language-switcher svg,
+.github-link svg {
   color: var(--muted);
 }
 
-.language-switcher:focus-visible {
+.language-switcher:focus-visible,
+.github-link:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
@@ -2383,13 +2402,13 @@ kbd {
   }
 }
 
-@media (width < 480px) {
+@media (width < 800px) {
   .header-inner {
     display: grid;
-    gap: 0 16px;
+    gap: 8px 16px;
     grid-template-areas:
-      "brand language"
-      "navigation navigation";
+      "brand navigation"
+      "actions actions";
     grid-template-columns: minmax(0, 1fr) auto;
     padding-block: 12px;
   }
@@ -2400,10 +2419,13 @@ kbd {
 
   .header-inner nav {
     grid-area: navigation;
+    justify-self: end;
   }
 
-  .language-switcher {
-    grid-area: language;
+  .header-actions {
+    margin-left: 0;
+    grid-area: actions;
+    justify-self: end;
   }
 }
 

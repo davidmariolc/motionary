@@ -14,7 +14,9 @@
     "made": "Hecho para mentes curiosas.",
     "studies": "{count} estudios. Un punto de partida para tu próxima idea.",
     "language": "Idioma",
-    "switchLanguage": "{current}. Cambiar a {language}"
+    "switchLanguage": "{current}. Cambiar a {language}",
+    "githubStars": "Repositorio en GitHub: {count, plural, one {# estrella} other {# estrellas}} (se abre en una pestaña nueva)",
+    "githubUnavailable": "Repositorio en GitHub (estrellas no disponibles; se abre en una pestaña nueva)"
   },
   "Home": {
     "heading": "Un diccionario<br></br> visual del<br></br> <accent>movimiento.</accent>",

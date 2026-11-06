@@ -14,7 +14,9 @@
     "made": "Made for curious minds.",
     "studies": "{count} studies. A starting point for your next idea.",
     "language": "Language",
-    "switchLanguage": "{current}. Switch to {language}"
+    "switchLanguage": "{current}. Switch to {language}",
+    "githubStars": "GitHub repository: {count, plural, one {# star} other {# stars}} (opens in a new tab)",
+    "githubUnavailable": "GitHub repository (star count unavailable; opens in a new tab)"
   },
   "Home": {
     "heading": "A visual<br></br> dictionary<br></br>  of <accent>motion.</accent>",

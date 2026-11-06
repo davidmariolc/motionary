@@ -4,6 +4,7 @@ import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowRight";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 import { CheckIcon } from "@phosphor-icons/react/dist/ssr/Check";
 import { CopyIcon } from "@phosphor-icons/react/dist/ssr/Copy";
+import { GithubLogoIcon } from "@phosphor-icons/react/dist/ssr/GithubLogo";
 import { GridFourIcon } from "@phosphor-icons/react/dist/ssr/GridFour";
 import { InfoIcon } from "@phosphor-icons/react/dist/ssr/Info";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr/MagnifyingGlass";
@@ -11,6 +12,7 @@ import { PauseIcon } from "@phosphor-icons/react/dist/ssr/Pause";
 import { PlayIcon } from "@phosphor-icons/react/dist/ssr/Play";
 import { ShapesIcon } from "@phosphor-icons/react/dist/ssr/Shapes";
 import { SignInIcon } from "@phosphor-icons/react/dist/ssr/SignIn";
+import { StarIcon } from "@phosphor-icons/react/dist/ssr/Star";
 import { TextTIcon } from "@phosphor-icons/react/dist/ssr/TextT";
 import { TranslateIcon } from "@phosphor-icons/react/dist/ssr/Translate";
 import { WaveformIcon } from "@phosphor-icons/react/dist/ssr/Waveform";
@@ -24,6 +26,7 @@ const icons = {
   copy: CopyIcon,
   diagonal: ArrowUpRightIcon,
   enter: SignInIcon,
+  github: GithubLogoIcon,
   grid: GridFourIcon,
   info: InfoIcon,
   pause: PauseIcon,
@@ -31,6 +34,7 @@ const icons = {
   replay: ArrowCounterClockwiseIcon,
   search: MagnifyingGlassIcon,
   shapes: ShapesIcon,
+  star: StarIcon,
   text: TextTIcon,
   translate: TranslateIcon,
   wave: WaveformIcon,

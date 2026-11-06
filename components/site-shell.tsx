@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { GitHubLink } from "@/components/github-link";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { animations } from "@/lib/animations";
 
@@ -43,7 +44,10 @@ export const SiteHeader = () => {
         <span className="header-note mono">
           <span className="small-dot" /> {t("note")}
         </span>
-        <LanguageSwitcher />
+        <div className="header-actions">
+          <LanguageSwitcher />
+          <GitHubLink />
+        </div>
       </div>
     </header>
   );
