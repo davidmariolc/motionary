@@ -218,17 +218,3 @@ export const createDemoAnimations = (
     return animation;
   });
 };
-const playback: {
-  pause: (() => void) | null;
-} = { pause: null };
-export const claimPlayback = (pause: () => void) => {
-  if (playback.pause !== pause) {
-    playback.pause?.();
-  }
-  playback.pause = pause;
-};
-export const releasePlayback = (pause: () => void) => {
-  if (playback.pause === pause) {
-    playback.pause = null;
-  }
-};

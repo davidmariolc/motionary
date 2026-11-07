@@ -7,7 +7,6 @@ import {
   filterAnimations,
   getAnimationEntries,
 } from "../lib/animations.ts";
-import { claimPlayback, releasePlayback } from "../lib/demo-animation.ts";
 
 const animations = getAnimationEntries(
   createTranslator({
@@ -21,8 +20,6 @@ const expectedAnimations = 24;
 const expectedCategorySize = 6;
 const minimumCopyLength = 40;
 const minimumDuration = 0;
-const noPauses = 0;
-const singlePause = 1;
 
 test("every animation has a unique shareable identity and complete content", () => {
   assert.equal(animations.length, expectedAnimations);
@@ -76,23 +73,4 @@ test("search requires all query words and supports empty results", () => {
       .length,
     expectedAnimations
   );
-});
-test("only the previous active player is paused when another claims playback", () => {
-  let firstPauses = 0;
-  let secondPauses = 0;
-  const first = () => {
-    firstPauses += singlePause;
-  };
-  const second = () => {
-    secondPauses += singlePause;
-  };
-  claimPlayback(first);
-  claimPlayback(first);
-  assert.equal(firstPauses, noPauses);
-  claimPlayback(second);
-  assert.equal(firstPauses, singlePause);
-  releasePlayback(first);
-  claimPlayback(first);
-  assert.equal(secondPauses, singlePause);
-  releasePlayback(first);
 });

@@ -28,13 +28,13 @@
     "find": "Encuentra tu movimiento",
     "findDescription": "Explora la colección o busca lo que tienes en mente.",
     "preview": "Prueba la vista previa",
-    "previewDescription": "Reproduce un efecto, baja la velocidad y descubre cómo funciona.",
+    "previewDescription": "Observa los efectos en movimiento, baja la velocidad y descubre cómo funcionan.",
     "copy": "Copia el prompt",
     "copyDescription": "Copia un prompt listo para usar y dale tu toque."
   },
   "Catalog": {
     "title": "La biblioteca de movimiento",
-    "note": "Elige un movimiento. Reprodúcelo. Hazlo tuyo.",
+    "note": "Explora los movimientos. Haz uno tuyo.",
     "search": "Buscar una animación",
     "placeholder": "Busca un movimiento, una sensación o una palabra…",
     "clear": "Borrar búsqueda",
@@ -45,7 +45,7 @@
     "inCategory": " en {category}",
     "forQuery": " para “{query}”",
     "reset": "Restablecer filtros",
-    "interactive": "Interactivo, a tu ritmo",
+    "interactive": "Vistas previas automáticas, a tu ritmo",
     "empty": "No se encontraron animaciones",
     "otherMatches": "{count, plural, one {# animación coincide} other {# animaciones coinciden}} con tu búsqueda en otras categorías.",
     "tryAgain": "Prueba otra palabra o explora toda la colección.",
@@ -55,7 +55,7 @@
   },
   "Detail": {
     "back": "Volver a la biblioteca",
-    "playback": "Un movimiento a la vez. Reprodúcelo a tu ritmo.",
+    "playback": "Se repite automáticamente. Puedes pausarlo o ajustar la velocidad.",
     "what": "Qué hace",
     "when": "Cuándo usarlo",
     "duration": "DURACIÓN BASE",

@@ -28,13 +28,13 @@
     "find": "Find your motion",
     "findDescription": "Browse the collection or search for what you have in mind.",
     "preview": "Try the preview",
-    "previewDescription": "Play an effect, slow it down, and see what makes it work.",
+    "previewDescription": "Watch the effects in motion, slow one down, and discover how it works.",
     "copy": "Copy the prompt",
     "copyDescription": "Copy a ready-to-use prompt and make it your own."
   },
   "Catalog": {
     "title": "The motion library",
-    "note": "Pick a motion. Press play. Make it yours.",
+    "note": "Explore the motions. Make one yours.",
     "search": "Find an animation",
     "placeholder": "Search a motion, a feeling, or a word…",
     "clear": "Clear search",
@@ -45,7 +45,7 @@
     "inCategory": " in {category}",
     "forQuery": " for “{query}”",
     "reset": "Reset filters",
-    "interactive": "Interactive, at your own pace",
+    "interactive": "Automatic previews, at your own pace",
     "empty": "No animations found",
     "otherMatches": "{count, plural, one {# animation matches} other {# animations match}} your search in other categories.",
     "tryAgain": "Try a different word or explore the full collection.",
@@ -55,7 +55,7 @@
   },
   "Detail": {
     "back": "Back to library",
-    "playback": "One motion at a time. Play it at your own pace.",
+    "playback": "Loops automatically. Pause it or adjust the speed to explore.",
     "what": "What it does",
     "when": "When to use it",
     "duration": "BASE DURATION",

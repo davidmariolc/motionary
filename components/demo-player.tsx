@@ -1,13 +1,11 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
-import {
-  claimPlayback,
-  createDemoAnimations,
-  releasePlayback,
-} from "@/lib/demo-animation";
+import { useEffect, useId, useRef, useState } from "react";
+import { createDemoAnimations } from "@/lib/demo-animation";
+import { createDemoPlayback } from "@/lib/demo-playback";
 import { DemoVisual } from "@/components/demo-visual";
 import { Icon } from "@/components/icon";
+import type { DemoPlaybackState } from "@/lib/demo-playback";
 import type { AnimationEntry } from "@/lib/animations";
 
 export const DemoPlayer = ({
@@ -18,110 +16,61 @@ export const DemoPlayer = ({
   readonly large?: boolean;
 }) => {
   const t = useTranslations("Player");
-  type PlaybackState = "idle" | "playing" | "paused" | "finished";
   const stage = useRef<HTMLElement>(null);
-  const group = useRef<Animation[]>([]);
-  const frame = useRef(0);
-  const [state, setState] = useState<PlaybackState>("idle");
+  const playback = useRef<ReturnType<typeof createDemoPlayback> | null>(null);
+  const [state, setState] = useState<DemoPlaybackState>("idle");
   const [speed, setSpeed] = useState(1);
   const speedId = useId();
   const stageId = useId();
-  const pause = useCallback(() => {
-    for (const animation of group.current) {
-      animation.pause();
-    }
-    cancelAnimationFrame(frame.current);
-    setState((current) => (current === "playing" ? "paused" : current));
-  }, []);
   useEffect(() => {
     const element = stage.current;
     if (!element) {
       return () => {
-        /*
-        No observer was created.
-        */
+        // No player was created.
       };
     }
+    const motionPreference = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+    const player = createDemoPlayback({
+      counter: element.querySelector<HTMLElement>("[data-count]"),
+      createAnimations: () => createDemoAnimations(element, entry),
+      duration: entry.duration,
+      onStateChange: setState,
+      pageVisible: !document.hidden,
+      reducedMotion: motionPreference.matches,
+    });
+    playback.current = player;
     const observer = new IntersectionObserver(
       ([record]) => {
-        if (!record.isIntersecting) {
-          pause();
-        }
+        player.setVisible(
+          record.isIntersecting && record.intersectionRatio >= 0.05
+        );
       },
       { threshold: 0.05 }
     );
     observer.observe(element);
-    const onVisibility = () => {
-      if (document.hidden) {
-        pause();
-      }
-    };
+    const onVisibility = () => player.setPageVisible(!document.hidden);
+    const onPageHide = () => player.setPageVisible(false);
+    const onMotionPreference = () =>
+      player.setReducedMotion(motionPreference.matches);
     document.addEventListener("visibilitychange", onVisibility);
-    window.addEventListener("pagehide", pause);
+    window.addEventListener("pagehide", onPageHide);
+    window.addEventListener("pageshow", onVisibility);
+    motionPreference.addEventListener("change", onMotionPreference);
     return () => {
       observer.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
-      window.removeEventListener("pagehide", pause);
-      cancelAnimationFrame(frame.current);
-      releasePlayback(pause);
-      for (const animation of group.current) {
-        animation.cancel();
-      }
+      window.removeEventListener("pagehide", onPageHide);
+      window.removeEventListener("pageshow", onVisibility);
+      motionPreference.removeEventListener("change", onMotionPreference);
+      player.destroy();
+      playback.current = null;
     };
-  }, [pause]);
-  const updateCounter = () => {
-    const [animation] = group.current;
-    const value = stage.current?.querySelector("[data-count]");
-    if (!animation || !value) {
-      return;
-    }
-    const progress = Math.min(
-      1,
-      Math.max(0, (Number(animation.currentTime) - 160) / entry.duration)
-    );
-    value.textContent = String(Math.round(100 * (1 - (1 - progress) ** 3)));
-    if (animation.playState === "running") {
-      frame.current = requestAnimationFrame(updateCounter);
-    }
-  };
-  const play = (shouldRestart = false) => {
-    if (!stage.current) {
-      return;
-    }
-    claimPlayback(pause);
-    if (shouldRestart || state === "idle" || state === "finished") {
-      cancelAnimationFrame(frame.current);
-      for (const animation of group.current) {
-        animation.cancel();
-      }
-      group.current = createDemoAnimations(stage.current, entry);
-      const leader = group.current.at(-1);
-      if (leader) {
-        leader.addEventListener(
-          "finish",
-          () => {
-            setState("finished");
-            releasePlayback(pause);
-          },
-          { once: true }
-        );
-      }
-    }
-    for (const animation of group.current) {
-      animation.updatePlaybackRate(speed);
-      animation.play();
-    }
-    setState("playing");
-    if (entry.id === "count-up") {
-      updateCounter();
-    }
-  };
-  const changeSpeed = (value: number) => {
-    setSpeed(value);
-    for (const animation of group.current) {
-      animation.updatePlaybackRate(value);
-    }
-  };
+  }, [entry]);
+  useEffect(() => {
+    playback.current?.setSpeed(speed);
+  }, [entry, speed]);
   const isPlaying = state === "playing";
   const stageStatus = state === "idle" ? t("idle") : `${t(state)} · ${speed}×`;
   let label = t("play");
@@ -168,7 +117,11 @@ export const DemoPlayer = ({
           type="button"
           className={large ? "button primary-button" : "preview-button"}
           onClick={() => {
-            (isPlaying ? pause : play)();
+            if (isPlaying) {
+              playback.current?.pause();
+            } else {
+              playback.current?.play();
+            }
           }}
           aria-label={t("action", { action: label, name: entry.name })}
           aria-controls={stageId}
@@ -181,7 +134,7 @@ export const DemoPlayer = ({
             <button
               type="button"
               className="button replay-button"
-              onClick={() => play(true)}
+              onClick={() => playback.current?.play(true)}
               aria-label={t("restartLabel", { name: entry.name })}
             >
               <Icon name="replay" />
@@ -193,7 +146,7 @@ export const DemoPlayer = ({
                 id={speedId}
                 aria-label={t("playbackSpeed")}
                 value={speed}
-                onChange={(event) => changeSpeed(Number(event.target.value))}
+                onChange={(event) => setSpeed(Number(event.target.value))}
               >
                 {[0.5, 1, 1.5, 2].map((value) => {
                   return (
